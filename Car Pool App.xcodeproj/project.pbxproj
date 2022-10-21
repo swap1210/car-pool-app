@@ -15,6 +15,8 @@
 		877A986B2901F490007E33EB /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 877A986A2901F490007E33EB /* logo.png */; };
 		877A986E2901F538007E33EB /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877A986D2901F538007E33EB /* LoginVC.swift */; };
 		877A98702901F667007E33EB /* UserTypeSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877A986F2901F667007E33EB /* UserTypeSelector.swift */; };
+		993EA95129034F6E000EE435 /* PassengerDashboardTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993EA95029034F6E000EE435 /* PassengerDashboardTableVC.swift */; };
+		99D6A9B729034A6D003CC3B6 /* DriverDashboardTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D6A9B629034A6D003CC3B6 /* DriverDashboardTableVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		877A986A2901F490007E33EB /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		877A986D2901F538007E33EB /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		877A986F2901F667007E33EB /* UserTypeSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTypeSelector.swift; sourceTree = "<group>"; };
+		993EA95029034F6E000EE435 /* PassengerDashboardTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassengerDashboardTableVC.swift; sourceTree = "<group>"; };
+		99D6A9B629034A6D003CC3B6 /* DriverDashboardTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverDashboardTableVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +89,8 @@
 			children = (
 				877A986D2901F538007E33EB /* LoginVC.swift */,
 				877A986F2901F667007E33EB /* UserTypeSelector.swift */,
+				99D6A9B629034A6D003CC3B6 /* DriverDashboardTableVC.swift */,
+				993EA95029034F6E000EE435 /* PassengerDashboardTableVC.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -163,8 +169,10 @@
 			files = (
 				877A98362900E0BE007E33EB /* AppDelegate.swift in Sources */,
 				877A98382900E0BE007E33EB /* SceneDelegate.swift in Sources */,
+				99D6A9B729034A6D003CC3B6 /* DriverDashboardTableVC.swift in Sources */,
 				877A986E2901F538007E33EB /* LoginVC.swift in Sources */,
 				877A98702901F667007E33EB /* UserTypeSelector.swift in Sources */,
+				993EA95129034F6E000EE435 /* PassengerDashboardTableVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

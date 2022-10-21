@@ -14,7 +14,13 @@ class UserTypeSelector: UIViewController {
         self.navigationItem.title = "Select User type"
     }
     
+    @IBAction func buttonSelectDriver(_ sender: Any) {
+        performSegue(withIdentifier: "selectedDriver", sender: self)
+    }
     
+    @IBAction func buttonSelectPassenger(_ sender: Any) {
+        performSegue(withIdentifier: "selectedPassenger", sender: self)
+    }
     /*
      // MARK: - Navigation
      
