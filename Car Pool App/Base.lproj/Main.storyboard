@@ -111,7 +111,13 @@
                             <outlet property="delegate" destination="ScY-hV-r79" id="pJV-Qc-sxM"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="HWT-sM-ra4"/>
+                    <navigationItem key="navigationItem" id="HWT-sM-ra4">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Euy-La-6w8">
+                            <connections>
+                                <action selector="addTrip:" destination="ScY-hV-r79" id="acg-aF-2Vp"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6o3-nn-Gsj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

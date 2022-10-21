@@ -44,6 +44,9 @@ class PassengerDashboardTableVC: UITableViewController {
         return cell
     }
     
+    @IBAction func addTrip(_ sender: Any) {
+    }
+    
 
     /*
     // Override to support conditional editing of the table view.
