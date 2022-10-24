@@ -7,20 +7,36 @@
 
 import UIKit
 
+
 class PassengerDashboardTableVC: UITableViewController {
 
-    var tripArray: [String] = ["Kroger", "UHCL", "Hawk's Landing", "Walmart"]
+    var tripArray: [Trip] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = "Passenger Dashboard"
+        
+        populateTrips()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+    func populateTrips() {
+        var destinationArray: [String] = ["Kroger", "UHCL", "Hawk's Landing", "Walmart"]
+        var requesterArray: [String] = ["John", "Ben", "Maria", "Paul"]
+        
+        let end = destinationArray.count - 1
+        for i in 0...end {
+            var trip = Trip()
+            trip.destination = destinationArray[i]
+            trip.requester = requesterArray[i]
+            tripArray.append(trip)
+        }
     }
 
     // MARK: - Table view data source
@@ -37,11 +53,16 @@ class PassengerDashboardTableVC: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "DriverCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "DriverCell", for: indexPath) as! PassengerDashboardTableViewCell
 
-        cell.textLabel?.text = tripArray[indexPath.row]
+        cell.destination.text = tripArray[indexPath.row].destination
+        cell.requester.text = tripArray[indexPath.row].requester
 
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
     }
     
     @IBAction func addTrip(_ sender: Any) {
