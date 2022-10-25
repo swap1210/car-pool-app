@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		57132EEB290898F1005CC93F /* PassengerChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57132EEA290898F1005CC93F /* PassengerChatVC.swift */; };
+		57132EEE290899F7005CC93F /* MessageKit in Frameworks */ = {isa = PBXBuildFile; productRef = 57132EED290899F7005CC93F /* MessageKit */; };
+		57132EF029089BC7005CC93F /* DriverChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57132EEF29089BC7005CC93F /* DriverChatVC.swift */; };
 		877A98362900E0BE007E33EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877A98352900E0BE007E33EB /* AppDelegate.swift */; };
 		877A98382900E0BE007E33EB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877A98372900E0BE007E33EB /* SceneDelegate.swift */; };
 		877A983D2900E0BE007E33EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 877A983B2900E0BE007E33EB /* Main.storyboard */; };
@@ -20,6 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		57132EEA290898F1005CC93F /* PassengerChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassengerChatVC.swift; sourceTree = "<group>"; };
+		57132EEF29089BC7005CC93F /* DriverChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverChatVC.swift; sourceTree = "<group>"; };
 		877A98322900E0BE007E33EB /* Car Pool App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Car Pool App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		877A98352900E0BE007E33EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		877A98372900E0BE007E33EB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -39,6 +44,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57132EEE290899F7005CC93F /* MessageKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,6 +97,8 @@
 				877A986F2901F667007E33EB /* UserTypeSelector.swift */,
 				99D6A9B629034A6D003CC3B6 /* DriverDashboardTableVC.swift */,
 				993EA95029034F6E000EE435 /* PassengerDashboardTableVC.swift */,
+				57132EEA290898F1005CC93F /* PassengerChatVC.swift */,
+				57132EEF29089BC7005CC93F /* DriverChatVC.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -111,6 +119,9 @@
 			dependencies = (
 			);
 			name = "Car Pool App";
+			packageProductDependencies = (
+				57132EED290899F7005CC93F /* MessageKit */,
+			);
 			productName = "Car Pool App";
 			productReference = 877A98322900E0BE007E33EB /* Car Pool App.app */;
 			productType = "com.apple.product-type.application";
@@ -139,6 +150,9 @@
 				Base,
 			);
 			mainGroup = 877A98292900E0BE007E33EB;
+			packageReferences = (
+				57132EEC290899F7005CC93F /* XCRemoteSwiftPackageReference "MessageKit" */,
+			);
 			productRefGroup = 877A98332900E0BE007E33EB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -169,8 +183,10 @@
 			files = (
 				877A98362900E0BE007E33EB /* AppDelegate.swift in Sources */,
 				877A98382900E0BE007E33EB /* SceneDelegate.swift in Sources */,
+				57132EF029089BC7005CC93F /* DriverChatVC.swift in Sources */,
 				99D6A9B729034A6D003CC3B6 /* DriverDashboardTableVC.swift in Sources */,
 				877A986E2901F538007E33EB /* LoginVC.swift in Sources */,
+				57132EEB290898F1005CC93F /* PassengerChatVC.swift in Sources */,
 				877A98702901F667007E33EB /* UserTypeSelector.swift in Sources */,
 				993EA95129034F6E000EE435 /* PassengerDashboardTableVC.swift in Sources */,
 			);
@@ -394,6 +410,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		57132EEC290899F7005CC93F /* XCRemoteSwiftPackageReference "MessageKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/MessageKit/MessageKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		57132EED290899F7005CC93F /* MessageKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 57132EEC290899F7005CC93F /* XCRemoteSwiftPackageReference "MessageKit" */;
+			productName = MessageKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 877A982A2900E0BE007E33EB /* Project object */;
 }

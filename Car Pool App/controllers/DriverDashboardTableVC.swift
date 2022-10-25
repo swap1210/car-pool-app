@@ -44,6 +44,14 @@ class DriverDashboardTableVC: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        //let vc = DriverChatVC()
+        //vc.title = "Driver Chat"
+        performSegue(withIdentifier: "driverChat", sender: self)
+        
+    }
+    
 
     /*
     // Override to support conditional editing of the table view.

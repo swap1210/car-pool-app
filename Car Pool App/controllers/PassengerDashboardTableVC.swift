@@ -47,6 +47,10 @@ class PassengerDashboardTableVC: UITableViewController {
     @IBAction func addTrip(_ sender: Any) {
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "passengerChat", sender: self)
+    }
+    
 
     /*
     // Override to support conditional editing of the table view.

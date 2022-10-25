@@ -118,10 +118,29 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="hIX-HR-j4s" kind="push" identifier="passengerChat" id="qKJ-d1-EEe"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6o3-nn-Gsj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5168" y="400"/>
+        </scene>
+        <!--PassengerChatVC-->
+        <scene sceneID="VBK-el-NLA">
+            <objects>
+                <viewController title="PassengerChatVC" id="hIX-HR-j4s" customClass="PassengerChatVC" customModule="Car_Pool_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ifs-VF-b7O">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="kuo-t3-dhv"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="cKs-JW-kak"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2rG-Vd-8Az" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6174" y="400"/>
         </scene>
         <!--Driver Dashboard TableVC-->
         <scene sceneID="KBP-Y4-Pdc">
@@ -147,6 +166,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="ta4-bg-czE"/>
+                    <connections>
+                        <segue destination="Na9-2G-Ci7" kind="push" identifier="driverChat" id="cVH-5O-Qn2"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UBd-HG-4Wm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -188,6 +210,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8pX-Ir-y0S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3014" y="-4"/>
+        </scene>
+        <!--DriverChatVC-->
+        <scene sceneID="BGO-J0-jL7">
+            <objects>
+                <viewController title="DriverChatVC" id="Na9-2G-Ci7" customClass="DriverChatVC" customModule="Car_Pool_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DOx-MS-GEy">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="1dV-F6-0nk"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="V21-s9-bcm"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="U90-K1-iHM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6174" y="-506"/>
         </scene>
     </scenes>
     <resources>
