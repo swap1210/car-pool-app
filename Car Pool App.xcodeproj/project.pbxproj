@@ -15,6 +15,8 @@
 		877A986B2901F490007E33EB /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 877A986A2901F490007E33EB /* logo.png */; };
 		877A986E2901F538007E33EB /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877A986D2901F538007E33EB /* LoginVC.swift */; };
 		877A98702901F667007E33EB /* UserTypeSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877A986F2901F667007E33EB /* UserTypeSelector.swift */; };
+		9935FE5A29073AC600B04C1C /* DriverDashboardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9935FE5929073AC600B04C1C /* DriverDashboardTableViewCell.swift */; };
+		9935FE5C29073AE500B04C1C /* PassengerDashboardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9935FE5B29073AE500B04C1C /* PassengerDashboardTableViewCell.swift */; };
 		993EA95129034F6E000EE435 /* PassengerDashboardTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993EA95029034F6E000EE435 /* PassengerDashboardTableVC.swift */; };
 		99D6A9B729034A6D003CC3B6 /* DriverDashboardTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D6A9B629034A6D003CC3B6 /* DriverDashboardTableVC.swift */; };
 /* End PBXBuildFile section */
@@ -30,6 +32,8 @@
 		877A986A2901F490007E33EB /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		877A986D2901F538007E33EB /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		877A986F2901F667007E33EB /* UserTypeSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTypeSelector.swift; sourceTree = "<group>"; };
+		9935FE5929073AC600B04C1C /* DriverDashboardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverDashboardTableViewCell.swift; sourceTree = "<group>"; };
+		9935FE5B29073AE500B04C1C /* PassengerDashboardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassengerDashboardTableViewCell.swift; sourceTree = "<group>"; };
 		993EA95029034F6E000EE435 /* PassengerDashboardTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassengerDashboardTableVC.swift; sourceTree = "<group>"; };
 		99D6A9B629034A6D003CC3B6 /* DriverDashboardTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverDashboardTableVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -64,6 +68,7 @@
 		877A98342900E0BE007E33EB /* Car Pool App */ = {
 			isa = PBXGroup;
 			children = (
+				9935FE562907335C00B04C1C /* table cells */,
 				877A986C2901F513007E33EB /* controllers */,
 				877A98692901F482007E33EB /* images */,
 				877A98352900E0BE007E33EB /* AppDelegate.swift */,
@@ -93,6 +98,15 @@
 				993EA95029034F6E000EE435 /* PassengerDashboardTableVC.swift */,
 			);
 			path = controllers;
+			sourceTree = "<group>";
+		};
+		9935FE562907335C00B04C1C /* table cells */ = {
+			isa = PBXGroup;
+			children = (
+				9935FE5929073AC600B04C1C /* DriverDashboardTableViewCell.swift */,
+				9935FE5B29073AE500B04C1C /* PassengerDashboardTableViewCell.swift */,
+			);
+			path = "table cells";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -170,9 +184,11 @@
 				877A98362900E0BE007E33EB /* AppDelegate.swift in Sources */,
 				877A98382900E0BE007E33EB /* SceneDelegate.swift in Sources */,
 				99D6A9B729034A6D003CC3B6 /* DriverDashboardTableVC.swift in Sources */,
+				9935FE5A29073AC600B04C1C /* DriverDashboardTableViewCell.swift in Sources */,
 				877A986E2901F538007E33EB /* LoginVC.swift in Sources */,
 				877A98702901F667007E33EB /* UserTypeSelector.swift in Sources */,
 				993EA95129034F6E000EE435 /* PassengerDashboardTableVC.swift in Sources */,
+				9935FE5C29073AE500B04C1C /* PassengerDashboardTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
