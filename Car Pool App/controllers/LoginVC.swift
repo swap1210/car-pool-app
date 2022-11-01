@@ -6,12 +6,20 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class LoginVC: UIViewController {
-
+    
+    @IBOutlet weak var passwordTF: UITextField!
+    @IBOutlet weak var userNameTF: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        let handle = Auth.auth().addStateDidChangeListener { auth, user in
+            print("login user!",user)
+            if(user != nil){
+                self.goToLogin()
+            }
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -19,10 +27,24 @@ class LoginVC: UIViewController {
     }
     
     
-    @IBAction func verifyLogin(_ sender: UIButton) {
-        
-        
-        performSegue(withIdentifier: "loginSuccess", sender: self)
+    override func viewWillAppear(_ animated: Bool) {
     }
     
+    @IBAction func performLogin(_ sender: Any) {
+        if let username = userNameTF.text{
+            if let psd = passwordTF.text{
+                Auth.auth().signIn(withEmail: username, password: psd) { authResult, error in
+                    print("Auth results ",error)
+                }
+            }
+        }
+    }
+    
+    @IBAction func goToNewUser(_ sender: Any) {
+        performSegue(withIdentifier: "createUser", sender: self)
+    }
+    
+    func goToLogin(){
+        performSegue(withIdentifier: "loginSuccess", sender: self)
+    }
 }

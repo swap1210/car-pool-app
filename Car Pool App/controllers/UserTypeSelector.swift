@@ -6,12 +6,30 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class UserTypeSelector: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Select User type"
+        self.logoutLogin()
+    }
+    
+    func logoutLogin(){
+        let handle = Auth.auth().addStateDidChangeListener { auth, user in
+            print(user)
+            if(user != nil){
+                self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(self.rightHandAction))
+            }else{
+                _ = self.navigationController?.popViewController(animated: true)
+            }
+        }
+    }
+    
+    @objc
+    func rightHandAction(){
+        try? Auth.auth().signOut()
     }
     
     @IBAction func buttonSelectDriver(_ sender: Any) {
