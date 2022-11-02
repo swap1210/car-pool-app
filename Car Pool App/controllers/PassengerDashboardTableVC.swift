@@ -65,9 +65,6 @@ class PassengerDashboardTableVC: UITableViewController {
         return 60
     }
     
-    @IBAction func addTrip(_ sender: Any) {
-    }
-    
 
     /*
     // Override to support conditional editing of the table view.
@@ -114,4 +111,8 @@ class PassengerDashboardTableVC: UITableViewController {
     }
     */
 
+    
+    @IBAction func addTrip(_ sender: UIBarButtonItem) {
+        performSegue(withIdentifier: "addTrip", sender: self)
+    }
 }

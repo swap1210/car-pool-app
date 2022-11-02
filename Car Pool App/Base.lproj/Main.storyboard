@@ -76,7 +76,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EC7-6x-222">
-                                <rect key="frame" x="136" y="523" width="119" height="31"/>
+                                <rect key="frame" x="136" y="407" width="119" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Passenger"/>
@@ -93,6 +93,15 @@
                                     <action selector="buttonSelectDriver:" destination="2GT-Pa-k5U" eventType="touchUpInside" id="kET-Cz-UPc"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QNg-Ht-Qqf">
+                                <rect key="frame" x="116" y="557" width="159" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Checkout Sample"/>
+                                <connections>
+                                    <action selector="goToSample:" destination="2GT-Pa-k5U" eventType="touchUpInside" id="bDZ-Po-W7c"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="KDK-Bl-bPH"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -101,11 +110,73 @@
                     <connections>
                         <segue destination="GlC-3n-0zK" kind="show" identifier="selectedDriver" id="TCd-QO-d22"/>
                         <segue destination="ScY-hV-r79" kind="show" identifier="selectedPassenger" id="Egy-iQ-eWU"/>
+                        <segue destination="mKq-v5-l1c" kind="show" identifier="goToSample" id="Gum-6i-jdY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dhx-FZ-0kD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3751" y="-4"/>
+            <point key="canvasLocation" x="3706" y="-4"/>
+        </scene>
+        <!--SampleVC-->
+        <scene sceneID="7RI-mu-f17">
+            <objects>
+                <viewController id="mKq-v5-l1c" customClass="SampleVC" customModule="Car_Pool_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OT9-j9-ejO" customClass="Sample">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sample View Controller" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yor-9n-Rbt">
+                                <rect key="frame" x="48" y="134" width="295" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="live Data" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZGQ-g1-uWg">
+                                <rect key="frame" x="134" y="362" width="122" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EhI-VW-82z">
+                                <rect key="frame" x="139" y="514" width="114" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Add Record"/>
+                                <connections>
+                                    <action selector="createRide:" destination="mKq-v5-l1c" eventType="touchUpInside" id="ev2-oN-RYl"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="InG-HN-len">
+                                <rect key="frame" x="147" y="441" width="97" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PSo-tx-eRw">
+                                <rect key="frame" x="124" y="637" width="144" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Remove Record"/>
+                                <connections>
+                                    <action selector="removeRecord:" destination="mKq-v5-l1c" eventType="touchUpInside" id="Hmo-Rv-dQX"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="GgM-hF-mHH"/>
+                        <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="94B-En-9fv"/>
+                    <connections>
+                        <outlet property="addRecord" destination="EhI-VW-82z" id="6De-gd-Egu"/>
+                        <outlet property="liveData" destination="ZGQ-g1-uWg" id="2B0-ki-l88"/>
+                        <outlet property="sampleInputTF" destination="InG-HN-len" id="jj1-fo-K8c"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rOD-NA-B5x" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3705" y="819"/>
         </scene>
         <!--Passenger Dashboard TableVC-->
         <scene sceneID="dpb-0f-gXH">
@@ -153,7 +224,7 @@
                     <navigationItem key="navigationItem" id="HWT-sM-ra4">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Euy-La-6w8">
                             <connections>
-                                <action selector="addTrip:" destination="ScY-hV-r79" id="acg-aF-2Vp"/>
+                                <action selector="addTrip:" destination="ScY-hV-r79" id="W49-EN-Ice"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -165,17 +236,29 @@
             </objects>
             <point key="canvasLocation" x="5167.6923076923076" y="399.52606635071089"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Trip-->
         <scene sceneID="ord-eY-Jhp">
             <objects>
-                <viewController id="SNq-AY-mrz" sceneMemberID="viewController">
+                <viewController title="Add Trip" id="SNq-AY-mrz" customClass="AddTripVC" customModule="Car_Pool_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6tO-Vu-Ri0">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="live detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FGB-hM-12t">
+                                <rect key="frame" x="159" y="250" width="72" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="v7O-h4-szE"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="0Nz-r7-88k"/>
+                    <navigationItem key="navigationItem" title="Add New Trip" id="0Nz-r7-88k"/>
+                    <connections>
+                        <outlet property="liveDataTest" destination="FGB-hM-12t" id="61h-hX-MVB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="peS-hy-gVz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -296,6 +379,9 @@
         <image name="logo.png" width="287" height="235"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -39,6 +39,11 @@ class UserTypeSelector: UIViewController {
     @IBAction func buttonSelectPassenger(_ sender: Any) {
         performSegue(withIdentifier: "selectedPassenger", sender: self)
     }
+    
+    @IBAction func goToSample(_ sender: UIButton) {
+        performSegue(withIdentifier: "goToSample", sender: self)
+    }
+    
     /*
      // MARK: - Navigation
      
