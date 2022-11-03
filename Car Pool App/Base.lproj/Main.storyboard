@@ -367,7 +367,7 @@
                     <navigationItem key="navigationItem" id="1eX-3B-KMB"/>
                     <connections>
                         <outlet property="passwordTF" destination="g19-PD-v4p" id="Bhs-im-RIk"/>
-                        <outlet property="usernameTF" destination="g19-PD-v4p" id="V9K-wm-hjW"/>
+                        <outlet property="usrTF" destination="dzz-8b-kC4" id="uUk-Vt-dfb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QfM-gA-p0q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
