@@ -13,7 +13,7 @@ struct Ride{
     var to: String
     var timeFrom: Timestamp
     var timeTo: Timestamp
-    var drive: String?
+    var driver: String?
     var passengers: [String]
     
     init(dictionary: NSDictionary){

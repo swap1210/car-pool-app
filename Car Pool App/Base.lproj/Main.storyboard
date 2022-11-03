@@ -163,6 +163,13 @@
                                     <action selector="removeRecord:" destination="mKq-v5-l1c" eventType="touchUpInside" id="Hmo-Rv-dQX"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nJz-zd-nwj">
+                                <rect key="frame" x="175" y="248" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="GgM-hF-mHH"/>
                         <color key="backgroundColor" systemColor="systemOrangeColor"/>
@@ -172,6 +179,7 @@
                         <outlet property="addRecord" destination="EhI-VW-82z" id="6De-gd-Egu"/>
                         <outlet property="liveData" destination="ZGQ-g1-uWg" id="2B0-ki-l88"/>
                         <outlet property="sampleInputTF" destination="InG-HN-len" id="jj1-fo-K8c"/>
+                        <outlet property="testField" destination="nJz-zd-nwj" id="O0F-zX-wV3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rOD-NA-B5x" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -339,17 +347,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="unlessEditing" translatesAutoresizingMaskIntoConstraints="NO" id="dzz-8b-kC4">
-                                <rect key="frame" x="146" y="345" width="97" height="34"/>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="center" minimumFontSize="17" clearButtonMode="unlessEditing" translatesAutoresizingMaskIntoConstraints="NO" id="dzz-8b-kC4">
+                                <rect key="frame" x="81" y="311" width="228" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" textContentType="email"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="g19-PD-v4p">
-                                <rect key="frame" x="147" y="416" width="97" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <textInputTraits key="textInputTraits" textContentType="password"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HuD-uP-ojT">
                                 <rect key="frame" x="137" y="532" width="115" height="44"/>
@@ -360,6 +362,12 @@
                                     <action selector="createNewUser:" destination="ehO-cG-aSk" eventType="touchUpInside" id="EIs-uy-GGc"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="g19-PD-v4p">
+                                <rect key="frame" x="81" y="414" width="228" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <textInputTraits key="textInputTraits" textContentType="password"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="9uL-6H-LYS"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -372,7 +380,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QfM-gA-p0q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2378" y="819"/>
+            <point key="canvasLocation" x="2376.9230769230767" y="818.957345971564"/>
         </scene>
     </scenes>
     <resources>
