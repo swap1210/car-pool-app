@@ -6,14 +6,24 @@
 //
 
 import UIKit
-
+import FirebaseFirestore
 
 class PassengerDashboardTableVC: UITableViewController {
 
+    var db: Firestore!
     var tripArray: [Trip] = []
+    var currentCount = 0
+    let subGroup = "passengerData"
+
+    @IBOutlet var passengerView: UITableView!
+    var destinationArray: [String] = []//["Kroger", "UHCL", "Hawk's Landing", "Walmart"]
+    //var requesterArray: [String] = []//["John", "Ben", "Maria", "Paul"]
+//    @IBOutlet weak var destination: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        db = Firestore.firestore()
         
         self.title = "Passenger Dashboard"
         
@@ -27,16 +37,44 @@ class PassengerDashboardTableVC: UITableViewController {
     }
     
     func populateTrips() {
-        var destinationArray: [String] = ["Kroger", "UHCL", "Hawk's Landing", "Walmart"]
-        var requesterArray: [String] = ["John", "Ben", "Maria", "Paul"]
         
-        let end = destinationArray.count - 1
-        for i in 0...end {
-            var trip = Trip()
-            trip.destination = destinationArray[i]
-            trip.requester = requesterArray[i]
-            tripArray.append(trip)
-        }
+        
+        db.collection("overall-data").document("rides")
+            .addSnapshotListener { documentSnapshot, error in
+                guard let document = documentSnapshot else {
+                    print("Error fetching document: \(error!)")
+                    return
+                }
+                
+                self.destinationArray = []
+                
+                guard let data = document.data() else {
+                    print("Document data was empty.")
+                    return
+                }
+                
+                if let _rides = data[self.subGroup] as? NSDictionary{
+                    self.currentCount = _rides["count"] as! Int
+                    if let _ridesRecords = _rides["records"] as? NSDictionary{
+                        for ride in _ridesRecords{
+                            let rideS = Ride(dictionary:ride.value as! NSDictionary)
+                            
+                            self.destinationArray.append(rideS.to)
+                            //self.destination.text = rideS.from
+                        }
+                    }
+                    self.passengerView.reloadData()
+                    print("Current data: \(_rides.count)")
+                }
+            }
+        
+//        let end = self.destinationArray.count - 1
+//        for i in 0...end {
+//            var trip = Trip()
+//            trip.destination = destinationArray[i]
+//            trip.requester = destinationArray[i]
+//            tripArray.append(trip)
+//        }
     }
 
     // MARK: - Table view data source
@@ -48,15 +86,16 @@ class PassengerDashboardTableVC: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return tripArray.count
+        return destinationArray.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DriverCell", for: indexPath) as! PassengerDashboardTableViewCell
 
-        cell.destination.text = tripArray[indexPath.row].destination
-        cell.requester.text = tripArray[indexPath.row].requester
+        cell.destination.text = destinationArray[indexPath.row]
+//        cell.destination.text = tripArray[indexPath.row].destination
+//        cell.requester.text = tripArray[indexPath.row].requester
 
         return cell
     }
