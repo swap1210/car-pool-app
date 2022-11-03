@@ -73,7 +73,7 @@ class SampleVC: UIViewController {
         let ridesRef = db.collection("overall-data").document("rides")
         var finalResult = false
         ridesRef.updateData([subGroup+".records."+String(self.currentCount+1):ride.toNSDictionary()]){err in
-            if let err{
+            if let err = err{
                 print("Write Error \(err)")
                 finalResult =  false
             }else{

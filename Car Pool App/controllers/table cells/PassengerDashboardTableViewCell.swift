@@ -10,9 +10,9 @@ import UIKit
 class PassengerDashboardTableViewCell: UITableViewCell {
 
     
-    @IBOutlet weak var destination: UILabel!
     @IBOutlet weak var requester: UILabel!
     
+    @IBOutlet weak var destination: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

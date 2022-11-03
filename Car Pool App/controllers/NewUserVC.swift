@@ -10,8 +10,8 @@ import FirebaseAuth
 
 class NewUserVC: UIViewController {
 
+    @IBOutlet weak var usrTF: UITextField!
     @IBOutlet weak var passwordTF: UITextField!
-    @IBOutlet weak var usernameTF: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -27,7 +27,7 @@ class NewUserVC: UIViewController {
     
     
     @IBAction func createNewUser(_ sender: Any) {
-        if let username = usernameTF.text{
+        if let username = usrTF.text{
             if let psd = passwordTF.text{
                 Auth.auth().createUser(withEmail: username, password: psd) { authResult, error in
                     print("Auth results ",error)
