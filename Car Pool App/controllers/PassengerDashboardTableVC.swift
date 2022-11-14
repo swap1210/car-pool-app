@@ -13,7 +13,6 @@ class PassengerDashboardTableVC: UITableViewController {
     var db: Firestore!
     var tripArray: [Trip] = []
     var currentCount = 0
-    let subGroup = "passengerData"
 
     @IBOutlet var passengerView: UITableView!
     var destinationArray: [String] = []//["Kroger", "UHCL", "Hawk's Landing", "Walmart"]
@@ -39,7 +38,7 @@ class PassengerDashboardTableVC: UITableViewController {
     func populateTrips() {
         
         
-        db.collection("overall-data").document("rides")
+        db.collection(Common.CPcollection).document(Common.document)
             .addSnapshotListener { documentSnapshot, error in
                 guard let document = documentSnapshot else {
                     print("Error fetching document: \(error!)")
@@ -53,7 +52,7 @@ class PassengerDashboardTableVC: UITableViewController {
                     return
                 }
                 
-                if let _rides = data[self.subGroup] as? NSDictionary{
+                if let _rides = data[Common.mainField] as? NSDictionary{
                     self.currentCount = _rides["count"] as! Int
                     if let _ridesRecords = _rides["records"] as? NSDictionary{
                         for ride in _ridesRecords{

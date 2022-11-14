@@ -31,8 +31,8 @@ class DriverDashboardTableVC: UITableViewController {
     }
     
     func populateTrips() {
-        var destinationArray: [String] = ["Kroger", "UHCL", "Hawk's Landing", "Walmart"]
-        var requesterArray: [String] = ["John", "Ben", "Maria", "Paul"]
+        let destinationArray: [String] = ["Kroger", "UHCL", "Hawk's Landing", "Walmart"]
+        let requesterArray: [String] = ["John", "Ben", "Maria", "Paul"]
         
         let end = destinationArray.count - 1
         for i in 0...end {

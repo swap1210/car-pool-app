@@ -13,13 +13,14 @@ class UserTypeSelector: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Select User type"
+        self.navigationItem.setHidesBackButton(true, animated: true)
         self.logoutLogin()
     }
     
     func logoutLogin(){
-        let handle = Auth.auth().addStateDidChangeListener { auth, user in
-            print(user)
+        _ = Auth.auth().addStateDidChangeListener { auth, user in
             if(user != nil){
+                print(user!)
                 self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(self.rightHandAction))
             }else{
                 _ = self.navigationController?.popViewController(animated: true)

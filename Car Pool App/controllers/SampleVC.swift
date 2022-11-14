@@ -51,11 +51,10 @@ class SampleVC: UIViewController {
                 }
             }
         
-        //
         db.collection("overall-data").document("rides").addSnapshotListener { documentSnapshot, err in
             //print("Got",documentSnapshot?.get("TestField"))
             self.testField.text = documentSnapshot?.get("TestField.we") as? String
-            print("Err ",err)
+            print("Err ",err!)
         }
     
     }
@@ -97,7 +96,7 @@ class SampleVC: UIViewController {
     func removeRide(index: String)-> Bool{
         //donot pass invalid value
         var finalResult = false
-        let oldCount = currentCount
+//        let oldCount = currentCount
         let ridesRef = db.collection("overall-data").document("rides")
         ridesRef.updateData([
             subGroup+".records."+index: FieldValue.delete(),

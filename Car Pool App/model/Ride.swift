@@ -21,18 +21,18 @@ struct Ride{
         self.to = (dictionary["to"] as? String ?? "")
         self.timeTo = (dictionary["timeTo"] as! Timestamp)
         self.timeFrom = (dictionary["timeFrom"] as! Timestamp)
-        self.passengers = []
+        self.passengers = (dictionary["passengers"] as? [String] ?? [])
     }
     
-    init(from: String,to: String,timeFrom: Timestamp,timeTo: Timestamp){
+    init(from: String,to: String,timeFrom: Timestamp,timeTo: Timestamp,passengers: [String] = []){
         self.from = from
         self.to = to
         self.timeFrom = timeFrom
         self.timeTo = timeTo
-        self.passengers = []
+        self.passengers = passengers
     }
     
     func toNSDictionary()-> NSDictionary{
-        return ["from":self.from,"to":self.to,"timeFrom":self.timeFrom,"timeTo":self.timeTo];
+        return ["from":self.from,"to":self.to,"timeFrom":self.timeFrom,"timeTo":self.timeTo,"passengers":self.passengers];
     }
 }
