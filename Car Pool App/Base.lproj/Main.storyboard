@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1ff-bC-f6W">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1ff-bC-f6W">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -18,13 +17,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="160" translatesAutoresizingMaskIntoConstraints="NO" id="RgF-kd-wlm">
-                                <rect key="frame" x="51.666666666666657" y="126.33333333333331" width="287" height="591.66666666666674"/>
+                                <rect key="frame" x="51.666666666666657" y="129.66666666666663" width="287" height="585"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="pxh-gF-crB">
                                         <rect key="frame" x="0.0" y="0.0" width="287" height="235"/>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="tuU-Fy-uhN">
-                                        <rect key="frame" x="0.0" y="395.00000000000006" width="287" height="196.66666666666669"/>
+                                        <rect key="frame" x="0.0" y="395" width="287" height="190"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="unlessEditing" translatesAutoresizingMaskIntoConstraints="NO" id="EAd-Kt-lPD">
                                                 <rect key="frame" x="43.333333333333343" y="0.0" width="200" height="34"/>
@@ -43,7 +42,7 @@
                                                 <textInputTraits key="textInputTraits" textContentType="password"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l5u-ee-sA0">
-                                                <rect key="frame" x="110.66666666666669" y="108" width="65.666666666666686" height="34.333333333333343"/>
+                                                <rect key="frame" x="113.66666666666667" y="108" width="59.333333333333329" height="31"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Login"/>
                                                 <connections>
@@ -51,7 +50,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dPW-HS-r9F">
-                                                <rect key="frame" x="94" y="162.33333333333326" width="98.666666666666686" height="34.333333333333343"/>
+                                                <rect key="frame" x="100" y="159" width="87" height="31"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="New User"/>
                                                 <connections>
@@ -239,7 +238,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="nuJ-EP-k8z">
-                                <rect key="frame" x="0.0" y="50" width="390" height="43.666667938232422"/>
+                                <rect key="frame" x="0.0" y="44.666666030883789" width="390" height="43.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nuJ-EP-k8z" id="A89-YH-195">
                                     <rect key="frame" x="0.0" y="0.0" width="390" height="43.666667938232422"/>
@@ -268,7 +267,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DriverCell" rowHeight="60" id="Xmm-tE-m4e" customClass="PassengerDashboardTableViewCell" customModule="Car_Pool_App" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="50" width="390" height="60"/>
+                                <rect key="frame" x="0.0" y="44.666666030883789" width="390" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Xmm-tE-m4e" id="wT4-k4-wbw">
                                     <rect key="frame" x="0.0" y="0.0" width="390" height="60"/>
@@ -326,7 +325,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="yUn-Eh-du5">
-                                <rect key="frame" x="35" y="214.99999999999997" width="320" height="414.33333333333326"/>
+                                <rect key="frame" x="35" y="76.666666666666686" width="320" height="691"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="From" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KdQ-a2-s8g">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="34"/>
@@ -334,21 +333,21 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="To" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LWk-r8-pP9">
-                                        <rect key="frame" x="0.0" y="74" width="320" height="34"/>
+                                        <rect key="frame" x="0.0" y="73.999999999999986" width="320" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="VqW-Ux-oyQ">
-                                        <rect key="frame" x="0.0" y="148" width="320" height="58"/>
+                                        <rect key="frame" x="0.0" y="148" width="320" height="216"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wk9-9n-ccm">
-                                                <rect key="frame" x="0.0" y="0.0" width="39.333333333333336" height="58"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="39.333333333333336" height="216"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="a2a-VL-qkD">
-                                                <rect key="frame" x="85" y="0.0" width="235" height="58"/>
+                                                <rect key="frame" x="85" y="0.0" width="235" height="216"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="235" id="5gf-9h-bVk"/>
                                                 </constraints>
@@ -356,16 +355,16 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="eXS-P3-KsO">
-                                        <rect key="frame" x="0.0" y="246" width="320" height="94"/>
+                                        <rect key="frame" x="0.0" y="404" width="320" height="216"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VXw-Bs-7eH">
-                                                <rect key="frame" x="0.0" y="0.0" width="18.333333333333332" height="94"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="18.333333333333332" height="216"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="slB-0D-mka">
-                                                <rect key="frame" x="85" y="0.0" width="235" height="94"/>
+                                                <rect key="frame" x="85" y="0.0" width="235" height="216"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="235" id="Pbd-rq-SrX"/>
                                                 </constraints>
@@ -373,7 +372,7 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3tJ-o1-5wL">
-                                        <rect key="frame" x="0.0" y="380" width="320" height="34.333333333333314"/>
+                                        <rect key="frame" x="0.0" y="660" width="320" height="31"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Save"/>
                                         <connections>
@@ -415,7 +414,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DriverCell" rowHeight="60" id="gbO-eI-hWX" customClass="DriverDashboardTableViewCell" customModule="Car_Pool_App" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="50" width="390" height="60"/>
+                                <rect key="frame" x="0.0" y="44.666666030883789" width="390" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gbO-eI-hWX" id="HiO-Ym-V1O">
                                     <rect key="frame" x="0.0" y="0.0" width="390" height="60"/>
@@ -460,7 +459,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1ff-bC-f6W" customClass="OverAllNC" customModule="Car_Pool_App" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Z57-R2-nzi">
-                        <rect key="frame" x="0.0" y="47" width="390" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -481,20 +480,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="QFe-MW-1ms">
-                                <rect key="frame" x="137.66666666666663" y="272" width="115.00000000000003" height="300"/>
+                                <rect key="frame" x="144.33333333333334" y="272" width="101.33333333333334" height="300"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="center" minimumFontSize="17" clearButtonMode="unlessEditing" translatesAutoresizingMaskIntoConstraints="NO" id="dzz-8b-kC4">
-                                        <rect key="frame" x="10.333333333333343" y="0.0" width="94" height="34"/>
+                                        <rect key="frame" x="3.6666666666666572" y="0.0" width="94" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" textContentType="email"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="g19-PD-v4p">
-                                        <rect key="frame" x="16" y="133" width="82.666666666666671" height="34"/>
+                                        <rect key="frame" x="9.3333333333333144" y="133.66666666666669" width="82.666666666666671" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <textInputTraits key="textInputTraits" textContentType="password"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HuD-uP-ojT">
-                                        <rect key="frame" x="0.0" y="265.66666666666663" width="115" height="34.333333333333314"/>
+                                        <rect key="frame" x="0.0" y="269" width="101.33333333333333" height="31"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Create User"/>
                                         <connections>
