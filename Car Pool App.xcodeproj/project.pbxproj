@@ -14,6 +14,7 @@
 		8746991829108A0D00AFC46F /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 8746991729108A0D00AFC46F /* FirebaseDatabase */; };
 		8746991A29108A0D00AFC46F /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 8746991929108A0D00AFC46F /* FirebaseFirestore */; };
 		8746991C2911184600AFC46F /* NewUserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8746991B2911184600AFC46F /* NewUserVC.swift */; };
+		875D3D552919E5D800F2F180 /* ChatBubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875D3D542919E5D800F2F180 /* ChatBubble.swift */; };
 		877A98362900E0BE007E33EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877A98352900E0BE007E33EB /* AppDelegate.swift */; };
 		877A98382900E0BE007E33EB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877A98372900E0BE007E33EB /* SceneDelegate.swift */; };
 		877A983D2900E0BE007E33EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 877A983B2900E0BE007E33EB /* Main.storyboard */; };
@@ -24,9 +25,9 @@
 		877A98702901F667007E33EB /* UserTypeSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877A986F2901F667007E33EB /* UserTypeSelector.swift */; };
 		87FE8BF8291190AB0090D279 /* OverAllNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FE8BF7291190AB0090D279 /* OverAllNC.swift */; };
 		87FE8BFA2911A33A0090D279 /* AddTripVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FE8BF92911A3390090D279 /* AddTripVC.swift */; };
-		87FE8BFC2911A9DA0090D279 /* CarpoolDBCRUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FE8BFB2911A9DA0090D279 /* CarpoolDBCRUD.swift */; };
 		87FE8BFE2911C1130090D279 /* SampleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FE8BFD2911C1130090D279 /* SampleVC.swift */; };
 		87FE8C01291255280090D279 /* Ride.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FE8C00291255280090D279 /* Ride.swift */; };
+		87FE8C0329139E030090D279 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FE8C0229139E030090D279 /* Common.swift */; };
 		9935FE5A29073AC600B04C1C /* DriverDashboardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9935FE5929073AC600B04C1C /* DriverDashboardTableViewCell.swift */; };
 		9935FE5C29073AE500B04C1C /* PassengerDashboardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9935FE5B29073AE500B04C1C /* PassengerDashboardTableViewCell.swift */; };
 		993EA95129034F6E000EE435 /* PassengerDashboardTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993EA95029034F6E000EE435 /* PassengerDashboardTableVC.swift */; };
@@ -36,6 +37,7 @@
 /* Begin PBXFileReference section */
 		8705A40A290A0A730021018D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8746991B2911184600AFC46F /* NewUserVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserVC.swift; sourceTree = "<group>"; };
+		875D3D542919E5D800F2F180 /* ChatBubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBubble.swift; sourceTree = "<group>"; };
 		877A98322900E0BE007E33EB /* Car Pool App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Car Pool App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		877A98352900E0BE007E33EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		877A98372900E0BE007E33EB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -48,9 +50,9 @@
 		877A986F2901F667007E33EB /* UserTypeSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTypeSelector.swift; sourceTree = "<group>"; };
 		87FE8BF7291190AB0090D279 /* OverAllNC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverAllNC.swift; sourceTree = "<group>"; };
 		87FE8BF92911A3390090D279 /* AddTripVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTripVC.swift; sourceTree = "<group>"; };
-		87FE8BFB2911A9DA0090D279 /* CarpoolDBCRUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarpoolDBCRUD.swift; sourceTree = "<group>"; };
 		87FE8BFD2911C1130090D279 /* SampleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleVC.swift; sourceTree = "<group>"; };
 		87FE8C00291255280090D279 /* Ride.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ride.swift; sourceTree = "<group>"; };
+		87FE8C0229139E030090D279 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		9935FE5929073AC600B04C1C /* DriverDashboardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverDashboardTableViewCell.swift; sourceTree = "<group>"; };
 		9935FE5B29073AE500B04C1C /* PassengerDashboardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassengerDashboardTableViewCell.swift; sourceTree = "<group>"; };
 		993EA95029034F6E000EE435 /* PassengerDashboardTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassengerDashboardTableVC.swift; sourceTree = "<group>"; };
@@ -77,7 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				8705A40A290A0A730021018D /* GoogleService-Info.plist */,
-				87FE8BFB2911A9DA0090D279 /* CarpoolDBCRUD.swift */,
+				87FE8C0229139E030090D279 /* Common.swift */,
 			);
 			path = service;
 			sourceTree = "<group>";
@@ -143,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				87FE8C00291255280090D279 /* Ride.swift */,
+				875D3D542919E5D800F2F180 /* ChatBubble.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -240,15 +243,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				877A98362900E0BE007E33EB /* AppDelegate.swift in Sources */,
+				875D3D552919E5D800F2F180 /* ChatBubble.swift in Sources */,
 				8746991C2911184600AFC46F /* NewUserVC.swift in Sources */,
 				877A98382900E0BE007E33EB /* SceneDelegate.swift in Sources */,
 				99D6A9B729034A6D003CC3B6 /* DriverDashboardTableVC.swift in Sources */,
 				87FE8BFE2911C1130090D279 /* SampleVC.swift in Sources */,
 				9935FE5A29073AC600B04C1C /* DriverDashboardTableViewCell.swift in Sources */,
 				877A986E2901F538007E33EB /* LoginVC.swift in Sources */,
-				87FE8BFC2911A9DA0090D279 /* CarpoolDBCRUD.swift in Sources */,
 				87FE8BFA2911A33A0090D279 /* AddTripVC.swift in Sources */,
 				87FE8BF8291190AB0090D279 /* OverAllNC.swift in Sources */,
+				87FE8C0329139E030090D279 /* Common.swift in Sources */,
 				877A98702901F667007E33EB /* UserTypeSelector.swift in Sources */,
 				993EA95129034F6E000EE435 /* PassengerDashboardTableVC.swift in Sources */,
 				9935FE5C29073AE500B04C1C /* PassengerDashboardTableViewCell.swift in Sources */,

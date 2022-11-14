@@ -13,6 +13,7 @@ class SampleVC: UIViewController {
     var currentCount = 0
     let subGroup = "driverData"
     
+    @IBOutlet weak var testField: UILabel!
     @IBOutlet weak var liveData: UILabel!
     @IBOutlet weak var addRecord: UIButton!
     @IBOutlet weak var sampleInputTF: UITextField!
@@ -49,6 +50,13 @@ class SampleVC: UIViewController {
                     print("Current data: \(_rides.count)")
                 }
             }
+        
+        db.collection("overall-data").document("rides").addSnapshotListener { documentSnapshot, err in
+            //print("Got",documentSnapshot?.get("TestField"))
+            self.testField.text = documentSnapshot?.get("TestField.we") as? String
+            print("Err ",err!)
+        }
+    
     }
     
     @IBAction func createRide(_ sender: UIButton) {
@@ -78,7 +86,7 @@ class SampleVC: UIViewController {
     
     
     @IBAction func removeRecord(_ sender: UIButton) {
-        if (removeRide(index: sampleInputTF.text!)){
+        if (sampleInputTF.text! != "" && removeRide(index: sampleInputTF.text!)){
             print("Remove Success")
         }else{
             print("Remove Error")
@@ -88,7 +96,7 @@ class SampleVC: UIViewController {
     func removeRide(index: String)-> Bool{
         //donot pass invalid value
         var finalResult = false
-        let oldCount = currentCount
+//        let oldCount = currentCount
         let ridesRef = db.collection("overall-data").document("rides")
         ridesRef.updateData([
             subGroup+".records."+index: FieldValue.delete(),
@@ -98,7 +106,7 @@ class SampleVC: UIViewController {
             } else {
                 //Decrement count
                 ridesRef.updateData([self.subGroup+".count" : FieldValue.increment(Int64(-1))])
-                print(String(oldCount)+" Document successfully updated "+String(self.currentCount))
+                print("Document successfully updated ")
                 finalResult = true
             }
         }

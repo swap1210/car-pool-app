@@ -14,9 +14,9 @@ class LoginVC: UIViewController {
     @IBOutlet weak var userNameTF: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-        let handle = Auth.auth().addStateDidChangeListener { auth, user in
-            print("login user!",user)
+        _ = Auth.auth().addStateDidChangeListener { auth, user in
             if(user != nil){
+                print("login user!",user!)
                 self.goToLogin()
             }
         }
@@ -34,7 +34,7 @@ class LoginVC: UIViewController {
         if let username = userNameTF.text{
             if let psd = passwordTF.text{
                 Auth.auth().signIn(withEmail: username, password: psd) { authResult, error in
-                    print("Auth results ",error)
+                    print("Auth results ",error!)
                 }
             }
         }
