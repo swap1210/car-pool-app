@@ -60,7 +60,7 @@ class PassengerDashboardTableVC: UITableViewController {
                             let rideS = Ride(dictionary:ride.value as! NSDictionary)
                             
                             if rideS.timeFrom.dateValue() > Date(){
-                                if rideS.passengers.count > 4{
+                                if rideS.passengers.count < 4{
                                     self.rideArray.append(rideS)
                                     self.destinationArray.append(rideS.to)
                                     //self.destination.text = rideS.from
