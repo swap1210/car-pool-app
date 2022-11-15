@@ -405,10 +405,10 @@
             </objects>
             <point key="canvasLocation" x="6204.6153846153848" y="399.52606635071089"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail TripVC-->
         <scene sceneID="jzp-0K-N5V">
             <objects>
-                <viewController id="AY7-qW-MR1" sceneMemberID="viewController">
+                <viewController id="AY7-qW-MR1" customClass="DetailTripVC" customModule="Car_Pool_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="miV-ic-47N">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
