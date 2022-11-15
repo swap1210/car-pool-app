@@ -11,7 +11,7 @@ import FirebaseFirestore
 class PassengerDashboardTableVC: UITableViewController {
 
     var db: Firestore!
-    var tripArray: [Trip] = []
+    var rideArray: [Ride] = []
     var currentCount = 0
 
     @IBOutlet var passengerView: UITableView!
@@ -55,11 +55,17 @@ class PassengerDashboardTableVC: UITableViewController {
                 if let _rides = data[Common.mainField] as? NSDictionary{
                     self.currentCount = _rides["count"] as! Int
                     if let _ridesRecords = _rides["records"] as? NSDictionary{
+                        
                         for ride in _ridesRecords{
                             let rideS = Ride(dictionary:ride.value as! NSDictionary)
                             
-                            self.destinationArray.append(rideS.to)
-                            //self.destination.text = rideS.from
+                            if rideS.timeFrom.dateValue() > Date(){
+                                if rideS.passengers.count > 4{
+                                    self.rideArray.append(rideS)
+                                    self.destinationArray.append(rideS.to)
+                                    //self.destination.text = rideS.from
+                                }
+                            }
                         }
                     }
                     self.passengerView.reloadData()
