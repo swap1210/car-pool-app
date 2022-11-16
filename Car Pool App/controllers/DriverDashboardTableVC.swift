@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseFirestore
 
 struct Trip{
     var destination = ""
@@ -14,15 +15,24 @@ struct Trip{
 
 class DriverDashboardTableVC: UITableViewController {
 
-    var tripArray: [Trip] = []
+    var db: Firestore!
+    var rideArray: [Ride] = []
+    var currentCount = 0
+
+    @IBOutlet var driverView: UITableView!
+    //var tripArray: [Trip] = []
+    var destinationArray: [String] = []
+    
+    //arry to store from destinations
+    var fromDestinationArray: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = "Driver Dashboard"
-        
+        db = Firestore.firestore()
         populateTrips()
-
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -31,9 +41,10 @@ class DriverDashboardTableVC: UITableViewController {
     }
     
     func populateTrips() {
-        let destinationArray: [String] = ["Kroger", "UHCL", "Hawk's Landing", "Walmart"]
-        let requesterArray: [String] = ["John", "Ben", "Maria", "Paul"]
+        //let destinationArray: [String] = ["Kroger", "UHCL", "Hawk's Landing", "Walmart"]
+        //let requesterArray: [String] = ["John", "Ben", "Maria", "Paul"]
         
+        /*
         let end = destinationArray.count - 1
         for i in 0...end {
             var trip = Trip()
@@ -41,6 +52,47 @@ class DriverDashboardTableVC: UITableViewController {
             trip.requester = requesterArray[i]
             tripArray.append(trip)
         }
+         */
+        
+        db.collection(Common.CPcollection).document(Common.document)
+            .addSnapshotListener { documentSnapshot, error in
+                guard let document = documentSnapshot else {
+                    print("Error fetching document: \(error!)")
+                    return
+                }
+                
+                self.destinationArray = []
+                
+                guard let data = document.data() else {
+                    print("Document data was empty.")
+                    return
+                }
+                
+                if let _rides = data[Common.mainField] as? NSDictionary{
+                    self.currentCount = _rides["count"] as! Int
+                    if let _ridesRecords = _rides["records"] as? NSDictionary{
+                        
+                        for ride in _ridesRecords{
+                            let rideS = Ride(dictionary:ride.value as! NSDictionary)
+                            
+                            if rideS.timeFrom.dateValue() > Date(){
+                                if rideS.passengers.count < 4{
+                                    self.rideArray.append(rideS)
+                                    self.destinationArray.append(rideS.to)
+                                    
+                                    //try to get from destinations
+                                    self.fromDestinationArray.append(rideS.from)
+                                    
+                                    //self.destination.text = rideS.from
+                                }
+                            }
+                        }
+                    }
+                    self.driverView.reloadData()
+                    print("Current data: \(_rides.count)")
+                    
+                }
+            }
     }
 
     // MARK: - Table view data source
@@ -52,15 +104,18 @@ class DriverDashboardTableVC: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return tripArray.count
+        return destinationArray.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DriverCell", for: indexPath) as! DriverDashboardTableViewCell
 
-        cell.destination.text = tripArray[indexPath.row].destination
-        cell.requester.text = tripArray[indexPath.row].requester
+        //cell.destination.text = tripArray[indexPath.row].destination
+        //cell.requester.text = tripArray[indexPath.row].requester
+        cell.destination.text = destinationArray[indexPath.row]
+        cell.fromDestination.text = fromDestinationArray[indexPath.row]
+        
         return cell
     }
     
