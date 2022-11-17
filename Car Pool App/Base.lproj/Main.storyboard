@@ -483,6 +483,12 @@
                             <constraint firstItem="Wdw-b5-pHw" firstAttribute="centerX" secondItem="miV-ic-47N" secondAttribute="centerX" id="rCU-6o-0xT"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="fromAddressLabel" destination="cEp-UH-3ra" id="t71-UM-6uf"/>
+                        <outlet property="fromDateLabel" destination="8PA-XC-fn9" id="oqh-z1-QHM"/>
+                        <outlet property="toAddressLabel" destination="gwz-hy-jpX" id="UMF-E8-Awm"/>
+                        <outlet property="toDateLabel" destination="zMd-VM-HnG" id="hGm-GM-VW1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UYr-HD-koN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
