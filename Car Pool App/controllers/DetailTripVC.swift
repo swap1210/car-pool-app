@@ -10,9 +10,14 @@ import UIKit
 class DetailTripVC: UIViewController {
     var isDriver:Bool!
     var TripId:Int!
+    
+    @IBOutlet weak var toDateLabel: UILabel!
+    @IBOutlet weak var fromDateLabel: UILabel!
+    @IBOutlet weak var toAddressLabel: UILabel!
+    @IBOutlet weak var fromAddressLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+ 
         // Do any additional setup after loading the view.
     }
     
