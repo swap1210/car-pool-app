@@ -10,7 +10,6 @@ import UIKit
 class DetailTripVC: UIViewController {
     var isDriver:Bool!
     var TripId:Int!
-    var trip:Trip!
     override func viewDidLoad() {
         super.viewDidLoad()
 
