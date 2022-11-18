@@ -15,7 +15,7 @@ class PassengerDashboardTableVC: UITableViewController {
     var currentCount = 0
 
     @IBOutlet var passengerView: UITableView!
-    var destinationArray: [String] = []//["Kroger", "UHCL", "Hawk's Landing", "Walmart"]
+    //var destinationArray: [String] = []//["Kroger", "UHCL", "Hawk's Landing", "Walmart"]
     //var requesterArray: [String] = []//["John", "Ben", "Maria", "Paul"]
 //    @IBOutlet weak var destination: UILabel!
     
@@ -49,7 +49,7 @@ class PassengerDashboardTableVC: UITableViewController {
                     return
                 }
                 
-                self.destinationArray = []
+                //self.destinationArray = []
                 
                 guard let data = document.data() else {
                     print("Document data was empty.")
@@ -66,7 +66,7 @@ class PassengerDashboardTableVC: UITableViewController {
                             if rideS.timeFrom.dateValue() > Date(){
                                 if rideS.passengers.count < 4{
                                     self.rideArray.append(rideS)
-                                    self.destinationArray.append(rideS.to)
+                                    //self.destinationArray.append(rideS.to)
                                     //self.destination.text = rideS.from
                                 }
                             }
@@ -95,14 +95,16 @@ class PassengerDashboardTableVC: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return destinationArray.count
+        return rideArray.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DriverCell", for: indexPath) as! PassengerDashboardTableViewCell
 
-        cell.destination.text = destinationArray[indexPath.row]
+        cell.destination.text = rideArray[indexPath.row].to //destinationArray[indexPath.row]
+        cell.driver.text = rideArray[indexPath.row].driver
+        cell.passengers.text = rideArray[indexPath.row].passengers.joined(separator: ", ")
 //        cell.destination.text = tripArray[indexPath.row].destination
 //        cell.requester.text = tripArray[indexPath.row].requester
 
@@ -162,5 +164,9 @@ class PassengerDashboardTableVC: UITableViewController {
     
     @IBAction func addTrip(_ sender: UIBarButtonItem) {
         performSegue(withIdentifier: "addTrip", sender: self)
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "passengerToDetails", sender: self)
     }
 }
