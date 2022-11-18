@@ -35,6 +35,10 @@ class PassengerDashboardTableVC: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        populateTrips()
+    }
+    
     func populateTrips() {
         
         

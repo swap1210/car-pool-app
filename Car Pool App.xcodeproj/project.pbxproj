@@ -23,6 +23,7 @@
 		877A986B2901F490007E33EB /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 877A986A2901F490007E33EB /* logo.png */; };
 		877A986E2901F538007E33EB /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877A986D2901F538007E33EB /* LoginVC.swift */; };
 		877A98702901F667007E33EB /* UserTypeSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877A986F2901F667007E33EB /* UserTypeSelector.swift */; };
+		87CC40002923114200ECC06A /* DetailTripVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CC3FFF2923114200ECC06A /* DetailTripVC.swift */; };
 		87FE8BF8291190AB0090D279 /* OverAllNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FE8BF7291190AB0090D279 /* OverAllNC.swift */; };
 		87FE8BFA2911A33A0090D279 /* AddTripVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FE8BF92911A3390090D279 /* AddTripVC.swift */; };
 		87FE8BFE2911C1130090D279 /* SampleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FE8BFD2911C1130090D279 /* SampleVC.swift */; };
@@ -48,6 +49,7 @@
 		877A986A2901F490007E33EB /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		877A986D2901F538007E33EB /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		877A986F2901F667007E33EB /* UserTypeSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTypeSelector.swift; sourceTree = "<group>"; };
+		87CC3FFF2923114200ECC06A /* DetailTripVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTripVC.swift; sourceTree = "<group>"; };
 		87FE8BF7291190AB0090D279 /* OverAllNC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverAllNC.swift; sourceTree = "<group>"; };
 		87FE8BF92911A3390090D279 /* AddTripVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTripVC.swift; sourceTree = "<group>"; };
 		87FE8BFD2911C1130090D279 /* SampleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleVC.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 				87FE8BF7291190AB0090D279 /* OverAllNC.swift */,
 				87FE8BF92911A3390090D279 /* AddTripVC.swift */,
 				87FE8BFD2911C1130090D279 /* SampleVC.swift */,
+				87CC3FFF2923114200ECC06A /* DetailTripVC.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -250,6 +253,7 @@
 				87FE8BFE2911C1130090D279 /* SampleVC.swift in Sources */,
 				9935FE5A29073AC600B04C1C /* DriverDashboardTableViewCell.swift in Sources */,
 				877A986E2901F538007E33EB /* LoginVC.swift in Sources */,
+				87CC40002923114200ECC06A /* DetailTripVC.swift in Sources */,
 				87FE8BFA2911A33A0090D279 /* AddTripVC.swift in Sources */,
 				87FE8BF8291190AB0090D279 /* OverAllNC.swift in Sources */,
 				87FE8C0329139E030090D279 /* Common.swift in Sources */,
