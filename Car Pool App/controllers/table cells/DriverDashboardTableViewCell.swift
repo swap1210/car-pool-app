@@ -10,7 +10,7 @@ import UIKit
 class DriverDashboardTableViewCell: UITableViewCell {
 
     @IBOutlet weak var destination: UILabel!
-    //@IBOutlet weak var requester: UILabel!
+    @IBOutlet weak var requester: UILabel!
     @IBOutlet weak var fromDestination: UILabel!
     
     override func awakeFromNib() {

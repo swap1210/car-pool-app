@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseFirestore
+import FirebaseAuth
 
 struct Trip{
     var destination = ""
@@ -19,19 +20,24 @@ class DriverDashboardTableVC: UITableViewController {
     var rideArray: [Ride] = []
     var currentCount = 0
 
+    let currentUser = Auth.auth().currentUser!.email
+
     @IBOutlet var driverView: UITableView!
-    //var tripArray: [Trip] = []
-    var destinationArray: [String] = []
     
+    var destinationArray: [String] = []
     //arry to store from destinations
     var fromDestinationArray: [String] = []
+    var isDriverArr: [Bool] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = "Driver Dashboard"
         db = Firestore.firestore()
+        //self.currentUser = Auth.auth().currentUser
+        
         populateTrips()
+        
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -79,17 +85,27 @@ class DriverDashboardTableVC: UITableViewController {
                                 if rideS.passengers.count < 4{
                                     self.rideArray.append(rideS)
                                     self.destinationArray.append(rideS.to)
-                                    
-                                    //try to get from destinations
                                     self.fromDestinationArray.append(rideS.from)
                                     
-                                    //self.destination.text = rideS.from
+                                    //find trips with current driver
+                                    if let temp = rideS.driver {
+                                        print("Current Driver: \(temp)")
+                                        self.isDriverArr.append(true)
+                                    }
+                                    else
+                                    {
+                                        print("No Driver")
+                                        self.isDriverArr.append(false)
+                                    }
+                                    
                                 }
                             }
                         }
                     }
                     self.driverView.reloadData()
-                    print("Current data: \(_rides.count)")
+                    //print("Current data: \(_rides.count)")
+                    //print("Current count: \(self.currentCount)")
+                    print("Current user: \(self.currentUser!)")
                     
                 }
             }
@@ -115,6 +131,10 @@ class DriverDashboardTableVC: UITableViewController {
         //cell.requester.text = tripArray[indexPath.row].requester
         cell.destination.text = destinationArray[indexPath.row]
         cell.fromDestination.text = fromDestinationArray[indexPath.row]
+        if(isDriverArr[indexPath.row])
+        {
+            cell.contentView.backgroundColor = UIColor.green
+        }
         
         return cell
     }
