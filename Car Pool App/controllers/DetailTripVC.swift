@@ -38,6 +38,7 @@ class DetailTripVC: UIViewController {
     var docRef: DocumentReference?
     override func viewDidLoad() {
         super.viewDidLoad()
+<<<<<<< HEAD
         // [START setup]
         let settings = FirestoreSettings()
         Firestore.firestore().settings = settings
@@ -175,6 +176,11 @@ class DetailTripVC: UIViewController {
     
     @IBAction func openChat(_ sender: Any) {
         performSegue(withIdentifier: "goToChatroom", sender:self)
+=======
+ 
+        // Do any additional setup after loading the view.
+        
+>>>>>>> 5149720 (Create Segue)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

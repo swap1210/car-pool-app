@@ -499,10 +499,10 @@
             </objects>
             <point key="canvasLocation" x="6203" y="397"/>
         </scene>
-        <!--Detail TripVC-->
+        <!--DetailTripVC-->
         <scene sceneID="jzp-0K-N5V">
             <objects>
-                <viewController id="AY7-qW-MR1" customClass="DetailTripVC" customModule="Car_Pool_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailTripVC" title="DetailTripVC" id="AY7-qW-MR1" customClass="DetailTripVC" customModule="Car_Pool_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="miV-ic-47N">
                         <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

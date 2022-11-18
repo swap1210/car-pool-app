@@ -28,6 +28,9 @@ class DriverDashboardTableVC: UITableViewController {
     //arry to store from destinations
     var fromDestinationArray: [String] = []
     var isDriverArr: [Bool] = []
+    var toDateArr: [Timestamp] = []
+    var fromDateArr: [Timestamp] = []
+    var tripIdArr: [Int] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,19 +76,24 @@ class DriverDashboardTableVC: UITableViewController {
                     print("Document data was empty.")
                     return
                 }
-                
+                var count = 0
                 if let _rides = data[Common.mainField] as? NSDictionary{
                     self.currentCount = _rides["count"] as! Int
                     if let _ridesRecords = _rides["records"] as? NSDictionary{
                         
                         for ride in _ridesRecords{
                             let rideS = Ride(dictionary:ride.value as! NSDictionary)
+                            count += 1;
                             
                             if rideS.timeFrom.dateValue() > Date(){
                                 if rideS.passengers.count < 4{
                                     self.rideArray.append(rideS)
                                     self.destinationArray.append(rideS.to)
                                     self.fromDestinationArray.append(rideS.from)
+                                    //self.toDateArr.append(rideS.timeTo)
+                                    //self.fromDateArr.append(rideS.timeFrom)
+                                    print("Current ID?: \(count)")
+                                    self.tripIdArr.append(count)
                                     
                                     //find trips with current driver
                                     if let temp = rideS.driver {
@@ -141,6 +149,22 @@ class DriverDashboardTableVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "DetailTripVC") as? DetailTripVC
+        
+        //vc?.toDate = String(toDateArr[indexPath.row])
+        //vc?.fromDate = String(fromDateArr[indexPath.row])
+        //vc?.toAddress = destinationArray[indexPath.row]
+        //vc?.fromAddress = fromDestinationArray[indexPath.row]
+        
+        vc?.isDriver = true
+        
+        //currently getting wrong trip id?
+        vc?.TripId = tripIdArr[indexPath.row]
+        
+        navigationController?.pushViewController(vc!, animated: true)
     }
 
     /*
