@@ -22,6 +22,7 @@ struct Ride{
         self.timeTo = (dictionary["timeTo"] as! Timestamp)
         self.timeFrom = (dictionary["timeFrom"] as! Timestamp)
         self.passengers = (dictionary["passengers"] as? [String] ?? [])
+        
     }
     
     init(from: String,to: String,timeFrom: Timestamp,timeTo: Timestamp,passengers: [String] = []){
