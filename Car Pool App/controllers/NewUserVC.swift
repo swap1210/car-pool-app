@@ -10,6 +10,8 @@ import FirebaseAuth
 
 class NewUserVC: UIViewController {
 
+    var userListener:AuthStateDidChangeListenerHandle?
+    
     @IBOutlet weak var usrTF: UITextField!
     @IBOutlet weak var passwordTF: UITextField!
     override func viewDidLoad() {
@@ -17,7 +19,7 @@ class NewUserVC: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-            let handle = Auth.auth().addStateDidChangeListener { auth, user in
+            userListener = Auth.auth().addStateDidChangeListener { auth, user in
                 if user != nil{
                     print(user!.email!)
                     let _ = self.navigationController?.popViewController(animated: true)
@@ -39,4 +41,9 @@ class NewUserVC: UIViewController {
         }
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        if let handle = self.userListener{
+            Auth.auth().removeStateDidChangeListener(handle)
+        }
+    }
 }

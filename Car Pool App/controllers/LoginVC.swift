@@ -14,16 +14,21 @@ class LoginVC: UIViewController {
     @IBOutlet weak var userNameTF: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
+        do{
+            try Auth.auth().signOut()
+        }catch err: {
+            
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.navigationItem.title = "Login"
         _ = Auth.auth().addStateDidChangeListener { auth, user in
             if(user != nil){
                 print("login user!",user!)
                 self.goToLogin()
             }
         }
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        self.navigationItem.title = "Login"
     }
     
     

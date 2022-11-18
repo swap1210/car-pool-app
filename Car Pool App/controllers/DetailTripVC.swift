@@ -10,17 +10,22 @@ import UIKit
 class DetailTripVC: UIViewController {
     var isDriver:Bool!
     var TripId:Int!
-    
     @IBOutlet weak var toDateLabel: UILabel!
     @IBOutlet weak var fromDateLabel: UILabel!
     @IBOutlet weak var toAddressLabel: UILabel!
     @IBOutlet weak var fromAddressLabel: UILabel!
+    
+    @IBOutlet weak var passengerStack: UIStackView!
+    @IBOutlet weak var driverLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
  
         // Do any additional setup after loading the view.
     }
     
+    func loadLabels(ride:Ride){
+        fromAddressLabel.text = ride.from
+    }
 
     /*
     // MARK: - Navigation
