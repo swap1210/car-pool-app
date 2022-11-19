@@ -17,6 +17,9 @@ class SampleVC: UIViewController {
     @IBOutlet weak var liveData: UILabel!
     @IBOutlet weak var addRecord: UIButton!
     @IBOutlet weak var sampleInputTF: UITextField!
+    private var rideListner: ListenerRegistration? = nil
+    private var rideListner2: ListenerRegistration? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -26,8 +29,12 @@ class SampleVC: UIViewController {
         // [END setup]
         
         db = Firestore.firestore()
+    
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         //adding records lstener
-        db.collection("overall-data").document("rides")
+        self.rideListner = db.collection("overall-data").document("rides")
             .addSnapshotListener { documentSnapshot, error in
                 guard let document = documentSnapshot else {
                     print("Error fetching document: \(error!)")
@@ -51,12 +58,18 @@ class SampleVC: UIViewController {
                 }
             }
         
-        db.collection("overall-data").document("rides").addSnapshotListener { documentSnapshot, err in
+        self.rideListner2 = db.collection("overall-data").document("rides").addSnapshotListener { documentSnapshot, err in
             //print("Got",documentSnapshot?.get("TestField"))
             self.testField.text = documentSnapshot?.get("TestField.we") as? String
-            print("Err ",err!)
+            if let e = err {
+                print("Err ",e)
+            }
         }
+    }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        self.rideListner?.remove()
+        self.rideListner2?.remove()
     }
     
     @IBAction func createRide(_ sender: UIButton) {
@@ -111,5 +124,16 @@ class SampleVC: UIViewController {
             }
         }
         return finalResult
+    }
+    
+    @IBAction func testChatDetail(_ sender: UIButton) {
+        performSegue(withIdentifier: "goToTripDetails", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let dest = segue.destination as? DetailTripVC{
+            dest.TripId = 3
+            dest.isDriver = false
+        }
     }
 }

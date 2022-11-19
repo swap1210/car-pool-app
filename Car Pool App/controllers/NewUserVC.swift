@@ -9,7 +9,7 @@ import UIKit
 import FirebaseAuth
 
 class NewUserVC: UIViewController {
-
+    
     var userListener:AuthStateDidChangeListenerHandle?
     
     @IBOutlet weak var usrTF: UITextField!
@@ -19,24 +19,10 @@ class NewUserVC: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-            userListener = Auth.auth().addStateDidChangeListener { auth, user in
-                if user != nil{
-                    print(user!.email!)
-                    let _ = self.navigationController?.popViewController(animated: true)
-                }
-            }
-    }
-    
-    
-    @IBAction func createNewUser(_ sender: Any) {
-        if let username = usrTF.text{
-            if let psd = passwordTF.text{
-                Auth.auth().createUser(withEmail: username, password: psd) { authResult, error in
-                    print("Auth results ",error)
-                    if error == nil{
-                        Auth.auth().signIn(withEmail: username, password: psd)
-                    }
-                }
+        userListener = Auth.auth().addStateDidChangeListener { auth, user in
+            if user != nil{
+                print(user!.email!)
+                let _ = self.navigationController?.popViewController(animated: true)
             }
         }
     }
@@ -46,4 +32,20 @@ class NewUserVC: UIViewController {
             Auth.auth().removeStateDidChangeListener(handle)
         }
     }
+    
+    @IBAction func createNewUser(_ sender: Any) {
+        if let username = usrTF.text{
+            if let psd = passwordTF.text{
+                Auth.auth().createUser(withEmail: username, password: psd) { authResult, error in
+                    if let e = error{
+                        print("Auth results ",e)
+                    }
+                    if error == nil{
+                        Auth.auth().signIn(withEmail: username, password: psd)
+                    }
+                }
+            }
+        }
+    }
+    
 }

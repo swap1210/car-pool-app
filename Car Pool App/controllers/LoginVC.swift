@@ -28,7 +28,7 @@ class LoginVC: UIViewController {
         self.navigationItem.title = "Login"
         self.userListener = Auth.auth().addStateDidChangeListener { auth, user in
             if(user != nil){
-                print("login user!",user!)
+//                print("login user!",user!)
                 self.goToLogin()
             }
         }
@@ -48,7 +48,9 @@ class LoginVC: UIViewController {
         if let username = userNameTF.text{
             if let psd = passwordTF.text{
                 Auth.auth().signIn(withEmail: username, password: psd) { authResult, error in
-                    print("Auth results ",error)
+                    if let e = error{
+                        print("Auth results ",e)
+                    }
                 }
             }
         }

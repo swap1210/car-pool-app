@@ -8,5 +8,7 @@
 import Foundation
 
 struct ChatBubble{
-    
+    var message: String
+    var at: Date
+    var from: String
 }
