@@ -12,6 +12,7 @@ class PassengerDashboardTableVC: UITableViewController {
 
     var db: Firestore!
     var rideArray: [Ride] = []
+    var rideToSend: Ride = Ride(from: "", to: "", timeFrom: Timestamp(), timeTo: Timestamp())
     var currentCount = 0
 
     @IBOutlet var passengerView: UITableView!
@@ -64,7 +65,7 @@ class PassengerDashboardTableVC: UITableViewController {
                             let rideS = Ride(dictionary:ride.value as! NSDictionary)
                             
                             if rideS.timeFrom.dateValue() > Date(){
-                                if rideS.passengers.count < 4{
+                                if rideS.passengers.count < 3{
                                     self.rideArray.append(rideS)
                                     //self.destinationArray.append(rideS.to)
                                     //self.destination.text = rideS.from
@@ -167,6 +168,16 @@ class PassengerDashboardTableVC: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        rideToSend = rideArray[indexPath.row]
         performSegue(withIdentifier: "passengerToDetails", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "passengerToDetails"{
+            if let detailVC = segue.destination as? DetailTripVC{
+                detailVC.isDriver = false
+                //detailVC.TripId =
+            }
+        }
     }
 }
