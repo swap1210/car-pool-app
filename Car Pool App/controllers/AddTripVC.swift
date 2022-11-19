@@ -74,7 +74,7 @@ class AddTripVC: UIViewController {
         }
         
         if (from != nil && to != nil && fromAtVal < toAtVal){
-            self.addRide(ride: Ride(from: from!, to: to!, timeFrom: Timestamp(date:fromAtVal), timeTo: Timestamp(date:toAtVal),passengers: passengersArr))
+            self.addRide(ride: Ride(from: from!, to: to!, timeFrom: Timestamp(date:fromAtVal), timeTo: Timestamp(date:toAtVal),driver: "", passengers: passengersArr))
         }
     }
     

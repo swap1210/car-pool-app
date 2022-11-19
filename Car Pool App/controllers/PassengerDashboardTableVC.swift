@@ -57,9 +57,9 @@ class PassengerDashboardTableVC: UITableViewController {
                 }
                 
                 if let _rides = data[Common.mainField] as? NSDictionary{
+                    print(_rides)
                     self.currentCount = _rides["count"] as! Int
                     if let _ridesRecords = _rides["records"] as? NSDictionary{
-                        
                         for ride in _ridesRecords{
                             let rideS = Ride(dictionary:ride.value as! NSDictionary)
                             

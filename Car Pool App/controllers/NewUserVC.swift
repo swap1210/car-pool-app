@@ -39,8 +39,7 @@ class NewUserVC: UIViewController {
                 Auth.auth().createUser(withEmail: username, password: psd) { authResult, error in
                     if let e = error{
                         print("Auth results ",e)
-                    }
-                    if error == nil{
+                    }else{
                         Auth.auth().signIn(withEmail: username, password: psd)
                     }
                 }

@@ -9,6 +9,8 @@ import UIKit
 import FirebaseAuth
 
 class UserTypeSelector: UIViewController {
+    
+    @IBOutlet weak var greetingLabel: UILabel!
     var userHandle: AuthStateDidChangeListenerHandle?
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,8 +32,9 @@ class UserTypeSelector: UIViewController {
     func logoutLogin(){
         self.userHandle = Auth.auth().addStateDidChangeListener { auth, user in
             if(user != nil){
-                print(user!)
+//                print(user!)
                 self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(self.rightHandAction))
+                self.greetingLabel.text = "Welcome "+(user?.email ?? "")+""
             }else{
                 _ = self.navigationController?.popViewController(animated: true)
             }

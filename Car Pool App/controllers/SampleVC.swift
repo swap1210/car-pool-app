@@ -19,7 +19,7 @@ class SampleVC: UIViewController {
     @IBOutlet weak var sampleInputTF: UITextField!
     private var rideListner: ListenerRegistration? = nil
     private var rideListner2: ListenerRegistration? = nil
-    
+    private var isDriver = false
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -73,7 +73,7 @@ class SampleVC: UIViewController {
     }
     
     @IBAction func createRide(_ sender: UIButton) {
-        let tempRide = Ride(from:"From Loc",to:"To Loc",timeFrom:Timestamp(date: Date()),timeTo:Timestamp(date: Date()))
+        let tempRide = Ride(from:"From Loc",to:"To Loc",timeFrom:Timestamp(date: Date()),timeTo:Timestamp(date: Date()), driver: "")
         if (addRide(ride: tempRide)){
             print("Write Success")
         }else{
@@ -99,16 +99,14 @@ class SampleVC: UIViewController {
     
     
     @IBAction func removeRecord(_ sender: UIButton) {
-        if (sampleInputTF.text! != "" && removeRide(index: sampleInputTF.text!)){
-            print("Remove Success")
+        if (sampleInputTF.text! != ""){
+            removeRide(index: sampleInputTF.text!)
         }else{
-            print("Remove Error")
+            print("Remove not needed")
         }
     }
     
-    func removeRide(index: String)-> Bool{
-        //donot pass invalid value
-        var finalResult = false
+    func removeRide(index: String){
 //        let oldCount = currentCount
         let ridesRef = db.collection("overall-data").document("rides")
         ridesRef.updateData([
@@ -120,20 +118,25 @@ class SampleVC: UIViewController {
                 //Decrement count
                 ridesRef.updateData([self.subGroup+".count" : FieldValue.increment(Int64(-1))])
                 print("Document successfully updated ")
-                finalResult = true
             }
         }
-        return finalResult
     }
     
     @IBAction func testChatDetail(_ sender: UIButton) {
+        self.isDriver = false
+        performSegue(withIdentifier: "goToTripDetails", sender: self)
+    }
+    
+    
+    @IBAction func openDriver(_ sender: UIButton) {
+        self.isDriver = true
         performSegue(withIdentifier: "goToTripDetails", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let dest = segue.destination as? DetailTripVC{
-            dest.TripId = 3
-            dest.isDriver = false
+            dest.TripId = 2
+            dest.isDriver = self.isDriver
         }
     }
 }
