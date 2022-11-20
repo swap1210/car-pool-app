@@ -12,8 +12,8 @@ class PassengerDashboardTableVC: UITableViewController {
 
     var db: Firestore!
     var rideArray: [Ride] = []
-    var rideToSend: Ride = Ride(from: "", to: "", timeFrom: Timestamp(), timeTo: Timestamp())
     var currentCount = 0
+    var currentTripId: Int = 0
 
     @IBOutlet var passengerView: UITableView!
     //var destinationArray: [String] = []//["Kroger", "UHCL", "Hawk's Landing", "Walmart"]
@@ -58,14 +58,14 @@ class PassengerDashboardTableVC: UITableViewController {
                 }
                 
                 if let _rides = data[Common.mainField] as? NSDictionary{
+                    print(_rides)
                     self.currentCount = _rides["count"] as! Int
                     if let _ridesRecords = _rides["records"] as? NSDictionary{
-                        
                         for ride in _ridesRecords{
-                            let rideS = Ride(dictionary:ride.value as! NSDictionary)
-                            
+                            var rideS = Ride(dictionary:ride.value as! NSDictionary)
+                            rideS.tripID = Int(ride.key as! String)
                             if rideS.timeFrom.dateValue() > Date(){
-                                if rideS.passengers.count < 3{
+                                if rideS.passengers.count <= Common.allowedPassengers{
                                     self.rideArray.append(rideS)
                                     //self.destinationArray.append(rideS.to)
                                     //self.destination.text = rideS.from
@@ -99,7 +99,6 @@ class PassengerDashboardTableVC: UITableViewController {
         return rideArray.count
     }
 
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DriverCell", for: indexPath) as! PassengerDashboardTableViewCell
 
@@ -168,7 +167,7 @@ class PassengerDashboardTableVC: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        rideToSend = rideArray[indexPath.row]
+        currentTripId = rideArray[indexPath.row].tripID!
         performSegue(withIdentifier: "passengerToDetails", sender: self)
     }
     
@@ -176,7 +175,7 @@ class PassengerDashboardTableVC: UITableViewController {
         if segue.identifier == "passengerToDetails"{
             if let detailVC = segue.destination as? DetailTripVC{
                 detailVC.isDriver = false
-                //detailVC.TripId =
+                detailVC.TripId = currentTripId
             }
         }
     }
