@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1ff-bC-f6W">
-    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
@@ -14,11 +14,11 @@
             <objects>
                 <viewController storyboardIdentifier="Login Page" title="Login Screen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="LoginVC" customModule="Car_Pool_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="160" translatesAutoresizingMaskIntoConstraints="NO" id="RgF-kd-wlm">
-                                <rect key="frame" x="44" y="37.5" width="287" height="592"/>
+                                <rect key="frame" x="16.5" y="-12" width="287" height="592"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="pxh-gF-crB">
                                         <rect key="frame" x="0.0" y="0.0" width="287" height="235"/>
@@ -87,11 +87,11 @@
             <objects>
                 <viewController title="User Type Screen" id="2GT-Pa-k5U" customClass="UserTypeSelector" customModule="Car_Pool_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9x1-Do-Zjj">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="edD-dQ-hsB">
-                                <rect key="frame" x="108.5" y="242" width="158.5" height="183.5"/>
+                                <rect key="frame" x="81" y="192.5" width="158.5" height="183.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EC7-6x-222">
                                         <rect key="frame" x="0.0" y="0.0" width="158.5" height="34.5"/>
@@ -120,7 +120,7 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2OR-5f-XVY">
-                                <rect key="frame" x="159" y="84" width="57" height="29"/>
+                                <rect key="frame" x="131.5" y="84" width="57" height="29"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -152,7 +152,7 @@
             <objects>
                 <viewController id="mKq-v5-l1c" customClass="SampleVC" customModule="Car_Pool_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OT9-j9-ejO" customClass="Sample">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sample View Controller" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yor-9n-Rbt">
@@ -240,15 +240,15 @@
             <objects>
                 <tableViewController id="ScY-hV-r79" customClass="PassengerDashboardTableVC" customModule="Car_Pool_App" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="5y2-Ya-gbi">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DriverCell" rowHeight="60" id="Xmm-tE-m4e" customClass="PassengerDashboardTableViewCell" customModule="Car_Pool_App" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="50" width="375" height="60"/>
+                                <rect key="frame" x="0.0" y="50" width="320" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Xmm-tE-m4e" id="wT4-k4-wbw">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SgK-G7-PDW">
@@ -308,11 +308,11 @@
             <objects>
                 <viewController title="Add Trip" id="SNq-AY-mrz" customClass="AddTripVC" customModule="Car_Pool_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6tO-Vu-Ri0">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="yUn-Eh-du5">
-                                <rect key="frame" x="27.5" y="123.5" width="320" height="420.5"/>
+                                <rect key="frame" x="0.0" y="74" width="320" height="420.5"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="From" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KdQ-a2-s8g">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="34"/>
@@ -396,11 +396,11 @@
             <objects>
                 <viewController id="AY7-qW-MR1" customClass="DetailTripVC" customModule="Car_Pool_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="miV-ic-47N">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Wdw-b5-pHw">
-                                <rect key="frame" x="12.5" y="161" width="350" height="345"/>
+                                <rect key="frame" x="-15" y="111.5" width="350" height="345"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;From Address&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cEp-UH-3ra">
                                         <rect key="frame" x="112" y="0.0" width="126.5" height="20.5"/>
@@ -474,7 +474,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="mSH-Oj-6FX">
-                                        <rect key="frame" x="1.5" y="294" width="347" height="51"/>
+                                        <rect key="frame" x="96" y="294" width="158.5" height="51"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y9Q-cJ-sBA">
                                                 <rect key="frame" x="0.0" y="0.0" width="158.5" height="51"/>
@@ -494,8 +494,8 @@
                                                     <action selector="addOrRemove:" destination="AY7-qW-MR1" eventType="touchUpInside" id="25T-Rp-DxV"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wy4-Oz-CtA">
-                                                <rect key="frame" x="188.5" y="9.5" width="158.5" height="32.5"/>
+                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wy4-Oz-CtA">
+                                                <rect key="frame" x="0.0" y="9.5" width="0.0" height="32.5"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" titleAlignment="center">
                                                     <attributedString key="attributedTitle">
@@ -520,7 +520,7 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trip detail and chat redirector" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ut5-7v-YIJ">
-                                <rect key="frame" x="27.5" y="54" width="320" height="172"/>
+                                <rect key="frame" x="0.0" y="54" width="320" height="172"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="172" id="BV1-IG-IWU"/>
                                     <constraint firstAttribute="width" constant="320" id="LaW-8N-K1H"/>
@@ -545,6 +545,7 @@
                         <outlet property="driverLabel" destination="bY8-dd-vaG" id="KrB-tS-k3S"/>
                         <outlet property="fromAddressLabel" destination="cEp-UH-3ra" id="t71-UM-6uf"/>
                         <outlet property="fromDateLabel" destination="8PA-XC-fn9" id="oqh-z1-QHM"/>
+                        <outlet property="openChatBtn" destination="Wy4-Oz-CtA" id="8We-hn-pPB"/>
                         <outlet property="passengerHeader" destination="AyD-DS-cIS" id="r7r-uY-doh"/>
                         <outlet property="passengerStack" destination="RVH-4J-uyP" id="g0X-67-kVy"/>
                         <outlet property="toAddressLabel" destination="gwz-hy-jpX" id="UMF-E8-Awm"/>
@@ -561,60 +562,98 @@
             <objects>
                 <tableViewController id="ZbN-X2-DwG" customClass="ChatTableVC" customModule="Car_Pool_App" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="Aiy-OP-p2R">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <stackView key="tableHeaderView" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="oAN-MI-xuz">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="34"/>
+                        <stackView key="tableHeaderView" opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" id="CoE-YT-h5F">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="79"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="5" id="GMH-Yp-2XU">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="34"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <subviews>
-                                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="type message here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yrT-eY-VUD">
-                                            <rect key="frame" x="0.0" y="0.0" width="310" height="34"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits"/>
-                                        </textField>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sbA-qg-Krk" userLabel="Send Button">
-                                            <rect key="frame" x="315" y="0.0" width="60" height="34"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="60" id="JHt-Ll-M51"/>
-                                            </constraints>
-                                            <state key="normal" title="Button"/>
-                                            <buttonConfiguration key="configuration" style="plain" image="arrowtriangle.forward.fill" catalog="system" subtitle=""/>
-                                            <connections>
-                                                <action selector="sendMessage:" destination="ZbN-X2-DwG" eventType="touchUpInside" id="V7N-5b-GAa"/>
-                                            </connections>
-                                        </button>
-                                    </subviews>
-                                </stackView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZvT-At-5gq">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="50" id="h9z-bm-gES"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ea-2C-bJm">
+                                    <rect key="frame" x="0.0" y="51" width="320" height="28"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                             </subviews>
-                            <viewLayoutGuide key="safeArea" id="KhJ-CQ-Kpw"/>
+                        </stackView>
+                        <stackView key="tableFooterView" opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="5" id="GMH-Yp-2XU">
+                            <rect key="frame" x="0.0" y="284" width="320" height="34"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <textField opaque="NO" contentMode="left" horizontalHuggingPriority="230" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="type message here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yrT-eY-VUD">
+                                    <rect key="frame" x="0.0" y="0.0" width="239" height="34"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </textField>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sbA-qg-Krk" userLabel="Send Button">
+                                    <rect key="frame" x="244" y="0.0" width="76" height="34"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="JHt-Ll-M51"/>
+                                    </constraints>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain" image="arrowtriangle.forward.fill" catalog="system" subtitle=""/>
+                                    <connections>
+                                        <action selector="sendMessage:" destination="ZbN-X2-DwG" eventType="touchUpInside" id="V7N-5b-GAa"/>
+                                    </connections>
+                                </button>
+                            </subviews>
                         </stackView>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="chatbubble" rowHeight="130" id="f8w-hD-X2E" customClass="ChatBubbleTableViewCell" customModule="Car_Pool_App" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="84" width="375" height="130"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="chatbubble" rowHeight="127" id="f8w-hD-X2E" customClass="ChatBubbleTableViewCell" customModule="Car_Pool_App" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="129" width="320" height="127"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="f8w-hD-X2E" id="q8U-Ry-am0">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="130"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="127"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y0L-8f-dJR">
-                                            <rect key="frame" x="166" y="-11" width="42" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chat_bubble_sent" translatesAutoresizingMaskIntoConstraints="NO" id="hmU-wd-vS7">
+                                            <rect key="frame" x="10" y="10" width="305" height="107"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y0L-8f-dJR">
+                                            <rect key="frame" x="26" y="21" width="268" height="70"/>
+                                            <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hmU-wd-vS7">
-                                            <rect key="frame" x="67" y="11" width="240" height="53"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LmY-NL-9CO">
+                                            <rect key="frame" x="152" y="96.5" width="138" height="14.5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="138" id="dKg-hA-U50"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottomMargin" secondItem="LmY-NL-9CO" secondAttribute="bottom" constant="5" id="1rs-e8-sgt"/>
+                                        <constraint firstItem="hmU-wd-vS7" firstAttribute="leading" secondItem="q8U-Ry-am0" secondAttribute="leading" constant="10" id="9wX-nH-DMG"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="LmY-NL-9CO" secondAttribute="trailing" constant="14" id="DWG-ac-z56"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="y0L-8f-dJR" secondAttribute="trailing" constant="10" id="KAH-2N-MzW"/>
+                                        <constraint firstItem="y0L-8f-dJR" firstAttribute="leading" secondItem="q8U-Ry-am0" secondAttribute="leadingMargin" constant="10" id="X3b-LL-5mS"/>
+                                        <constraint firstAttribute="bottom" secondItem="hmU-wd-vS7" secondAttribute="bottom" constant="10" id="bko-kE-28j"/>
+                                        <constraint firstItem="y0L-8f-dJR" firstAttribute="top" secondItem="q8U-Ry-am0" secondAttribute="topMargin" constant="10" id="qT1-NF-8fk"/>
+                                        <constraint firstAttribute="trailing" secondItem="hmU-wd-vS7" secondAttribute="trailing" constant="5" id="rfs-w4-rfc"/>
+                                        <constraint firstItem="hmU-wd-vS7" firstAttribute="top" secondItem="q8U-Ry-am0" secondAttribute="top" constant="10" id="sMK-IA-lH3"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="y0L-8f-dJR" secondAttribute="bottom" constant="25" id="xJC-I7-HfN"/>
+                                        <constraint firstItem="LmY-NL-9CO" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="q8U-Ry-am0" secondAttribute="leading" constant="20" symbolic="YES" id="ycC-bj-KBC"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="atLabel" destination="LmY-NL-9CO" id="uCN-ak-W2N"/>
                                     <outlet property="bubbleImg" destination="hmU-wd-vS7" id="gfv-F6-WHN"/>
+                                    <outlet property="bubbleImgHeightConstraint" destination="q8U-Ry-am0" id="U09-9s-3kF"/>
+                                    <outlet property="mainView" destination="q8U-Ry-am0" id="Q5p-Kb-Fd9"/>
                                     <outlet property="message" destination="y0L-8f-dJR" id="EFu-dD-RDw"/>
                                 </connections>
                             </tableViewCell>
@@ -626,28 +665,31 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="7Qd-L4-dno"/>
                     <connections>
+                        <outlet property="addressesLabel" destination="ZvT-At-5gq" id="AQ6-Eb-OhL"/>
+                        <outlet property="chatTableView" destination="Aiy-OP-p2R" id="WiJ-6R-Zff"/>
                         <outlet property="sendButton" destination="sbA-qg-Krk" id="sDd-Vb-L6d"/>
                         <outlet property="sendTextField" destination="yrT-eY-VUD" id="ddQ-AU-vXR"/>
+                        <outlet property="timeLabel" destination="7ea-2C-bJm" id="D0v-0q-wc0"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E3b-5Y-Dpv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7453.6000000000004" y="-506.89655172413796"/>
+            <point key="canvasLocation" x="7202.7906976744189" y="-507.2961373390558"/>
         </scene>
         <!--Driver Dashboard TableVC-->
         <scene sceneID="KBP-Y4-Pdc">
             <objects>
                 <tableViewController id="GlC-3n-0zK" customClass="DriverDashboardTableVC" customModule="Car_Pool_App" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="YcG-qq-Sne">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DriverCell" rowHeight="60" id="gbO-eI-hWX" customClass="DriverDashboardTableViewCell" customModule="Car_Pool_App" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="50" width="375" height="60"/>
+                                <rect key="frame" x="0.0" y="50" width="320" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gbO-eI-hWX" id="HiO-Ym-V1O">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J6t-bK-mKY">
@@ -689,7 +731,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1ff-bC-f6W" customClass="OverAllNC" customModule="Car_Pool_App" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Z57-R2-nzi">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -706,11 +748,11 @@
             <objects>
                 <viewController title="New User" id="ehO-cG-aSk" customClass="NewUserVC" customModule="Car_Pool_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lss-F7-Dbw">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="QFe-MW-1ms">
-                                <rect key="frame" x="87.5" y="183.5" width="200" height="300"/>
+                                <rect key="frame" x="60" y="134" width="200" height="300"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="center" minimumFontSize="17" clearButtonMode="unlessEditing" translatesAutoresizingMaskIntoConstraints="NO" id="dzz-8b-kC4">
                                         <rect key="frame" x="0.0" y="0.0" width="200" height="34"/>
@@ -768,6 +810,7 @@
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrowtriangle.forward.fill" catalog="system" width="128" height="113"/>
+        <image name="chat_bubble_sent" width="118" height="34"/>
         <image name="logo.png" width="287" height="235"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

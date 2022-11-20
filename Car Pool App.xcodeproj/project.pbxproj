@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8705A40B290A0A730021018D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8705A40A290A0A730021018D /* GoogleService-Info.plist */; };
+		8724835F2929FA1D0064DA72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8724835E2929FA1D0064DA72 /* Assets.xcassets */; };
 		8746991229108A0D00AFC46F /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 8746991129108A0D00AFC46F /* FirebaseAnalytics */; };
 		8746991429108A0D00AFC46F /* FirebaseAppCheck in Frameworks */ = {isa = PBXBuildFile; productRef = 8746991329108A0D00AFC46F /* FirebaseAppCheck */; };
 		8746991629108A0D00AFC46F /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 8746991529108A0D00AFC46F /* FirebaseAuth */; };
@@ -18,7 +19,6 @@
 		877A98362900E0BE007E33EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877A98352900E0BE007E33EB /* AppDelegate.swift */; };
 		877A98382900E0BE007E33EB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877A98372900E0BE007E33EB /* SceneDelegate.swift */; };
 		877A983D2900E0BE007E33EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 877A983B2900E0BE007E33EB /* Main.storyboard */; };
-		877A983F2900E0C1007E33EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 877A983E2900E0C1007E33EB /* Assets.xcassets */; };
 		877A98422900E0C1007E33EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 877A98402900E0C1007E33EB /* LaunchScreen.storyboard */; };
 		877A986B2901F490007E33EB /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 877A986A2901F490007E33EB /* logo.png */; };
 		877A986E2901F538007E33EB /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877A986D2901F538007E33EB /* LoginVC.swift */; };
@@ -39,13 +39,13 @@
 
 /* Begin PBXFileReference section */
 		8705A40A290A0A730021018D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8724835E2929FA1D0064DA72 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8746991B2911184600AFC46F /* NewUserVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserVC.swift; sourceTree = "<group>"; };
 		875D3D542919E5D800F2F180 /* ChatBubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBubble.swift; sourceTree = "<group>"; };
 		877A98322900E0BE007E33EB /* Car Pool App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Car Pool App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		877A98352900E0BE007E33EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		877A98372900E0BE007E33EB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		877A983C2900E0BE007E33EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		877A983E2900E0C1007E33EB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		877A98412900E0C1007E33EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		877A98432900E0C1007E33EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		877A986A2901F490007E33EB /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
@@ -116,9 +116,9 @@
 				877A98352900E0BE007E33EB /* AppDelegate.swift */,
 				877A98372900E0BE007E33EB /* SceneDelegate.swift */,
 				877A983B2900E0BE007E33EB /* Main.storyboard */,
-				877A983E2900E0C1007E33EB /* Assets.xcassets */,
 				877A98402900E0C1007E33EB /* LaunchScreen.storyboard */,
 				877A98432900E0C1007E33EB /* Info.plist */,
+				8724835E2929FA1D0064DA72 /* Assets.xcassets */,
 			);
 			path = "Car Pool App";
 			sourceTree = "<group>";
@@ -246,9 +246,9 @@
 			files = (
 				877A986B2901F490007E33EB /* logo.png in Resources */,
 				877A98422900E0C1007E33EB /* LaunchScreen.storyboard in Resources */,
-				877A983F2900E0C1007E33EB /* Assets.xcassets in Resources */,
 				877A983D2900E0BE007E33EB /* Main.storyboard in Resources */,
 				8705A40B290A0A730021018D /* GoogleService-Info.plist in Resources */,
+				8724835F2929FA1D0064DA72 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
