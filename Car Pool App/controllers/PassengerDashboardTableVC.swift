@@ -63,7 +63,7 @@ class PassengerDashboardTableVC: UITableViewController {
                 }
                 
                 if let _rides = data[Common.mainField] as? NSDictionary{
-                    print(_rides)
+//                    print(_rides)
                     self.currentCount = _rides["count"] as! Int
                     if let _ridesRecords = _rides["records"] as? NSDictionary{
                         for ride in _ridesRecords{
@@ -79,7 +79,7 @@ class PassengerDashboardTableVC: UITableViewController {
                         }
                     }
                     self.passengerView.reloadData()
-                    print("Current data: \(_rides.count)")
+//                    print("Current data: \(_rides.count)")
                 }
             }
         
@@ -110,7 +110,7 @@ class PassengerDashboardTableVC: UITableViewController {
         cell.destination.text = rideArray[indexPath.row].to //destinationArray[indexPath.row]
         cell.driver.text = rideArray[indexPath.row].driver 
         cell.passengers.text = rideArray[indexPath.row].passengers.joined(separator: ", ")
-        cell.itHasMe = rideArray[indexPath.row].passengers.contains(myEmail)
+//        cell.itHasMe = rideArray[indexPath.row].passengers.contains(myEmail)
 //        cell.destination.text = tripArray[indexPath.row].destination
 //        cell.requester.text = tripArray[indexPath.row].requester
 
