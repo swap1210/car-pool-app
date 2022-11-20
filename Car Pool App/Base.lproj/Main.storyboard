@@ -258,8 +258,15 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Drb-i4-89c">
-                                            <rect key="frame" x="286" y="19" width="84" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="&lt;driver&gt;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nZd-7J-Jba">
+                                            <rect key="frame" x="106" y="39" width="148" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Drb-i4-89c">
+                                            <rect key="frame" x="160" y="-1" width="199" height="49"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -269,7 +276,8 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="destination" destination="SgK-G7-PDW" id="0Mc-dp-QzK"/>
-                                    <outlet property="requester" destination="Drb-i4-89c" id="G4W-zx-pAi"/>
+                                    <outlet property="driver" destination="nZd-7J-Jba" id="JAa-Zf-hHP"/>
+                                    <outlet property="passengers" destination="Drb-i4-89c" id="7YL-S1-uyd"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -288,11 +296,12 @@
                     <connections>
                         <outlet property="passengerView" destination="5y2-Ya-gbi" id="d3f-rk-inv"/>
                         <segue destination="SNq-AY-mrz" kind="show" identifier="addTrip" id="Rdd-c3-djj"/>
+                        <segue destination="AY7-qW-MR1" kind="show" identifier="passengerToDetails" id="ysT-4l-ZSd"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6o3-nn-Gsj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5167.6923076923076" y="399.52606635071089"/>
+            <point key="canvasLocation" x="5167.1999999999998" y="398.95052473763121"/>
         </scene>
         <!--Add Trip-->
         <scene sceneID="ord-eY-Jhp">
@@ -754,6 +763,9 @@
             <point key="canvasLocation" x="2376.9230769230767" y="818.957345971564"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="ysT-4l-ZSd"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="arrowtriangle.forward.fill" catalog="system" width="128" height="113"/>
         <image name="logo.png" width="287" height="235"/>

@@ -13,9 +13,12 @@ class PassengerDashboardTableVC: UITableViewController {
     var db: Firestore!
     var rideArray: [Ride] = []
     var currentCount = 0
+    var currentTripId: Int = 0
+    private var rideListner: ListenerRegistration? = nil
+    var myEmail: String?
 
     @IBOutlet var passengerView: UITableView!
-    var destinationArray: [String] = []//["Kroger", "UHCL", "Hawk's Landing", "Walmart"]
+    //var destinationArray: [String] = []//["Kroger", "UHCL", "Hawk's Landing", "Walmart"]
     //var requesterArray: [String] = []//["John", "Ben", "Maria", "Paul"]
 //    @IBOutlet weak var destination: UILabel!
     
@@ -39,17 +42,20 @@ class PassengerDashboardTableVC: UITableViewController {
         populateTrips()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        self.rideListner?.remove()
+    }
     func populateTrips() {
         
         
-        db.collection(Common.CPcollection).document(Common.document)
+        self.rideListner = db.collection(Common.CPcollection).document(Common.document)
             .addSnapshotListener { documentSnapshot, error in
                 guard let document = documentSnapshot else {
                     print("Error fetching document: \(error!)")
                     return
                 }
                 
-                self.destinationArray = []
+                self.rideArray = []
                 
                 guard let data = document.data() else {
                     print("Document data was empty.")
@@ -61,12 +67,12 @@ class PassengerDashboardTableVC: UITableViewController {
                     self.currentCount = _rides["count"] as! Int
                     if let _ridesRecords = _rides["records"] as? NSDictionary{
                         for ride in _ridesRecords{
-                            let rideS = Ride(dictionary:ride.value as! NSDictionary)
-                            
+                            var rideS = Ride(dictionary:ride.value as! NSDictionary)
+                            rideS.tripID = Int(ride.key as! String)
                             if rideS.timeFrom.dateValue() > Date(){
-                                if rideS.passengers.count < 4{
+                                if rideS.passengers.count <= Common.allowedPassengers{
                                     self.rideArray.append(rideS)
-                                    self.destinationArray.append(rideS.to)
+                                    //self.destinationArray.append(rideS.to)
                                     //self.destination.text = rideS.from
                                 }
                             }
@@ -95,13 +101,16 @@ class PassengerDashboardTableVC: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return destinationArray.count
+        return rideArray.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DriverCell", for: indexPath) as! PassengerDashboardTableViewCell
 
-        cell.destination.text = destinationArray[indexPath.row]
+        cell.destination.text = rideArray[indexPath.row].to //destinationArray[indexPath.row]
+        cell.driver.text = rideArray[indexPath.row].driver 
+        cell.passengers.text = rideArray[indexPath.row].passengers.joined(separator: ", ")
+        cell.itHasMe = rideArray[indexPath.row].passengers.contains(myEmail)
 //        cell.destination.text = tripArray[indexPath.row].destination
 //        cell.requester.text = tripArray[indexPath.row].requester
 
@@ -129,7 +138,7 @@ class PassengerDashboardTableVC: UITableViewController {
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
     }
     */
 
@@ -161,5 +170,19 @@ class PassengerDashboardTableVC: UITableViewController {
     
     @IBAction func addTrip(_ sender: UIBarButtonItem) {
         performSegue(withIdentifier: "addTrip", sender: self)
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        currentTripId = rideArray[indexPath.row].tripID!
+        performSegue(withIdentifier: "passengerToDetails", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "passengerToDetails"{
+            if let detailVC = segue.destination as? DetailTripVC{
+                detailVC.isDriver = false
+                detailVC.TripId = currentTripId
+            }
+        }
     }
 }

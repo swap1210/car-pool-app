@@ -15,7 +15,6 @@ class ChatTableVC: UITableViewController {
     
     @IBOutlet weak var sendButton: UIButton!
     @IBOutlet weak var sendTextField: UITextField!
-    @IBOutlet weak var headingLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -95,5 +94,8 @@ class ChatTableVC: UITableViewController {
     */
 
     @IBAction func sendMessage(_ sender: UIButton) {
+        if let msgTxt = self.sendTextField.text{
+            print("try sending "+msgTxt)
+        }
     }
 }

@@ -15,6 +15,7 @@ struct Ride{
     var timeTo: Timestamp
     var driver: String
     var passengers: [String]
+    var tripID: Int?
     
     init(dictionary: NSDictionary){
         self.from = (dictionary["from"] as? String ?? "")
