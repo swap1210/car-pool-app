@@ -135,7 +135,7 @@ class SampleVC: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let dest = segue.destination as? DetailTripVC{
-            dest.TripId = 2
+            dest.TripId = 1
             dest.isDriver = self.isDriver
         }
     }

@@ -87,7 +87,7 @@ class ChatTableVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "chatbubble", for: indexPath) as! ChatBubbleTableViewCell
-        cell.setBubbleAndRide(selfBubble: self.sender == chats[indexPath.row].from, isDriver: self.isDriver, bubble: chats[indexPath.row])
+        cell.setBubbleAndRide(selfBubble: self.sender == chats[indexPath.row].from, isDriver: self.ride.driver == chats[indexPath.row].from, bubble: chats[indexPath.row])
 //        print("Preparing cell")
         return cell
     }

@@ -78,11 +78,11 @@ class AddTripVC: UIViewController {
         }else{
             var message:String = ""
             
-            if (from != nil || from != ""){
+            if (from == nil || from == ""){
                 message = "From address is invalid. "
             }
             
-            if (to != nil && to != ""){
+            if (to == nil || to == ""){
                 message = message + "To address is invalid. "
             }
             
@@ -108,7 +108,7 @@ class AddTripVC: UIViewController {
                     self.present(alertController, animated: true, completion:nil)
         }
     }
-    
+     
     func addRide(ride: Ride){
         let ridesRef = db.collection(Common.CPcollection).document(Common.document)
         let countval = self.currentCount+1

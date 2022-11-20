@@ -39,19 +39,19 @@ class ChatBubbleTableViewCell: UITableViewCell {
         self.atLabel.textColor = UIColor(named: "chat_text_color_sent")
         
         if selfBubble{//self bubble
-            messagePrefix = "Me: "
-        }else if isDriver{//Other Drivers bubble
-            messagePrefix = "Driver: "
+            messagePrefix = "Me"
         }else{//others bubble
-            messagePrefix = bubble.from+": "
+            messagePrefix = bubble.from
             self.bubbleImg.image = receivedImage.resizableImage(withCapInsets:UIEdgeInsets(top: 17, left: 21, bottom: 17, right: 21),resizingMode:.stretch).withRenderingMode(.alwaysTemplate)
             self.bubbleImg.tintColor = UIColor(named: "chat_bubble_color_received")
             self.message.textColor = UIColor(named: "chat_text_color_received")
             self.atLabel.textColor = UIColor(named: "chat_text_color_received")
         }
         
-//        self.bubbleImg.tintColor = UIColor(named: "chat_bubble_color_sent")
-        self.message.text = messagePrefix+bubble.message
+        if(isDriver){
+            messagePrefix = messagePrefix + " (driver)"
+        }
+        self.message.text = messagePrefix+": "+bubble.message
         self.atLabel.text = bubble.at.dateValue().formatted()
     }
 }
