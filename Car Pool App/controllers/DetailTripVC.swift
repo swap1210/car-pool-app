@@ -25,6 +25,7 @@ class DetailTripVC: UIViewController {
     @IBOutlet weak var passengerStack: UIStackView!
     @IBOutlet weak var changeButton: UIButton!
     @IBOutlet weak var driverLabel: UILabel!
+    @IBOutlet weak var openChatBtn: UIButton!
     
     enum BtnTxt: String{
         case plusPassenger = "Add me to trip"
@@ -71,6 +72,7 @@ class DetailTripVC: UIViewController {
                 return
             }
             self.currentRide = Ride(dictionary: _rides)
+            self.currentRide?.tripID = self.TripId
             self.loadLabels(ride: Ride(dictionary: _rides))
         }
     }
@@ -90,12 +92,14 @@ class DetailTripVC: UIViewController {
         if (self.isDriver){
             if (ride.driver == self.currentUser){
                 buttonString = DetailTripVC.BtnTxt.minusDriver.rawValue
+                self.openChatBtn.isHidden = false
             }else{
                 buttonString = DetailTripVC.BtnTxt.plusDriver.rawValue
             }
         }else{
             if (ride.passengers.contains(self.currentUser)){
                 buttonString = DetailTripVC.BtnTxt.minusPassenger.rawValue
+                self.openChatBtn.isHidden = false
             }else{
                 buttonString = DetailTripVC.BtnTxt.plusPassenger.rawValue
             }
@@ -123,6 +127,7 @@ class DetailTripVC: UIViewController {
                     }else{
                         print("Update sucess to remove")
                         self.changeButton.setTitle(BtnTxt.plusDriver.rawValue,for:.normal)
+                        self.openChatBtn.isHidden = false
                     }
                 }
             }else{
@@ -132,6 +137,8 @@ class DetailTripVC: UIViewController {
                     }else{
                         print("Update sucess to add")
                         self.changeButton.setTitle(BtnTxt.minusDriver.rawValue,for:.normal)
+                        self.createChatDoc()
+                        self.openChatBtn.isHidden = false
                     }
                 }
             }
@@ -143,6 +150,8 @@ class DetailTripVC: UIViewController {
                     }else{
                         print("Update sucess")
                         self.changeButton.setTitle(BtnTxt.minusPassenger.rawValue,for:.normal)
+                        self.createChatDoc()
+                        self.openChatBtn.isHidden = false
                     }
                 }
             }else{
@@ -152,14 +161,29 @@ class DetailTripVC: UIViewController {
                     }else{
                         print("Update sucess")
                         self.changeButton.setTitle(BtnTxt.plusPassenger.rawValue,for:.normal)
+                        self.openChatBtn.isHidden = true
                     }
                 }
             }
+            
+//            db.collection("cities").document("BJ").setData([ "capital": true ], merge: true)
         }
+    }
+    
+    func createChatDoc(){
+        db.collection(Common.CPcollection).document("chat-1-"+String(self.TripId)).setData([ "sentChats": FieldValue.arrayUnion([]) ], merge: true)
     }
     
     
     @IBAction func openChat(_ sender: Any) {
         performSegue(withIdentifier: "goToChatroom", sender:self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let ct = segue.destination as? ChatTableVC{
+            ct.ride = self.currentRide
+            ct.sender = self.currentUser
+            ct.isDriver = self.isDriver
+        }
     }
 }
