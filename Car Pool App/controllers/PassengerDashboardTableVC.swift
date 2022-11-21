@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseFirestore
+import FirebaseAuth
 
 class PassengerDashboardTableVC: UITableViewController {
 
@@ -16,6 +17,7 @@ class PassengerDashboardTableVC: UITableViewController {
     var currentTripId: Int = 0
     private var rideListner: ListenerRegistration? = nil
     var myEmail: String?
+    let dateFormatter = DateFormatter()
 
     @IBOutlet var passengerView: UITableView!
     //var destinationArray: [String] = []//["Kroger", "UHCL", "Hawk's Landing", "Walmart"]
@@ -29,7 +31,7 @@ class PassengerDashboardTableVC: UITableViewController {
         
         self.title = "Passenger Dashboard"
         
-        populateTrips()
+        self.myEmail = Auth.auth().currentUser?.email ?? ""
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -107,18 +109,20 @@ class PassengerDashboardTableVC: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DriverCell", for: indexPath) as! PassengerDashboardTableViewCell
 
-        cell.destination.text = rideArray[indexPath.row].to //destinationArray[indexPath.row]
-        cell.driver.text = rideArray[indexPath.row].driver 
-        cell.passengers.text = rideArray[indexPath.row].passengers.joined(separator: ", ")
-        cell.itHasMe = rideArray[indexPath.row].passengers.contains(myEmail)
-//        cell.destination.text = tripArray[indexPath.row].destination
-//        cell.requester.text = tripArray[indexPath.row].requester
+        cell.fromToLocation.text = rideArray[indexPath.row].from + " - " + rideArray[indexPath.row].to //destinationArray[indexPath.row]
+        cell.driver.text = "Driver: " + rideArray[indexPath.row].driver
+        dateFormatter.dateFormat = "MM/dd/YY HH:mm"
+        cell.fromToTime.text = dateFormatter.string(from: rideArray[indexPath.row].timeFrom.dateValue()) + " - " + dateFormatter.string(from: rideArray[indexPath.row].timeTo.dateValue())
+        if let myEmail = myEmail{
+            cell.itHasMe = rideArray[indexPath.row].passengers.contains(myEmail)
+        }
+        cell.checkItHasMe()
 
         return cell
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60
+        return 80
     }
     
 
