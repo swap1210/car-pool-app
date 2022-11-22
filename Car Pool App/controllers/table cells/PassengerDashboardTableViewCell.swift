@@ -18,6 +18,16 @@ class PassengerDashboardTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
+    
+    func checkItHasMe(){
+        if itHasMe == true{
+            self.backgroundColor = UIColor.green
+        }
+        else{
+            self.backgroundColor = nil
+        }
+    }
+
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
