@@ -73,7 +73,9 @@ class PassengerDashboardTableVC: UITableViewController {
                             rideS.tripID = Int(ride.key as! String)
                             if rideS.timeFrom.dateValue() > Date(){
                                 if rideS.passengers.count <= Common.allowedPassengers{
-                                    self.rideArray.append(rideS)
+                                    if rideS.driver != self.myEmail{//not include records where current user is driver
+                                        self.rideArray.append(rideS)
+                                    }
                                     //self.destinationArray.append(rideS.to)
                                     //self.destination.text = rideS.from
                                 }
