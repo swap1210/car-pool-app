@@ -165,8 +165,6 @@ class DetailTripVC: UIViewController {
                     }
                 }
             }
-            
-//            db.collection("cities").document("BJ").setData([ "capital": true ], merge: true)
         }
     }
     
