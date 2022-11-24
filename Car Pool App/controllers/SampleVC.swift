@@ -20,6 +20,8 @@ class SampleVC: UIViewController {
     private var rideListner: ListenerRegistration? = nil
     private var rideListner2: ListenerRegistration? = nil
     private var isDriver = false
+    @IBOutlet weak var tripID: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -135,7 +137,7 @@ class SampleVC: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let dest = segue.destination as? DetailTripVC{
-            dest.TripId = 1
+            dest.TripId = Int(self.tripID.text!)
             dest.isDriver = self.isDriver
         }
     }
