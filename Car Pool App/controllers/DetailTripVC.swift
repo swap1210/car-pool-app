@@ -127,7 +127,7 @@ class DetailTripVC: UIViewController {
                     }else{
                         print("Update sucess to remove")
                         self.changeButton.setTitle(BtnTxt.plusDriver.rawValue,for:.normal)
-                        self.openChatBtn.isHidden = false
+                        self.openChatBtn.isHidden = true
                     }
                 }
             }else{
@@ -143,7 +143,7 @@ class DetailTripVC: UIViewController {
                 }
             }
         }else{
-            if (self.changeButton.titleLabel?.text == "Add me to trip"){
+            if (self.changeButton.titleLabel?.text == DetailTripVC.BtnTxt.plusPassenger.rawValue){
                 self.docRef?.updateData([Common.mainField+".records."+String(self.TripId)+".passengers":FieldValue.arrayUnion([self.currentUser])]){err in
                     if let err = err{
                         print("Update failure",err)
@@ -165,8 +165,6 @@ class DetailTripVC: UIViewController {
                     }
                 }
             }
-            
-//            db.collection("cities").document("BJ").setData([ "capital": true ], merge: true)
         }
     }
     

@@ -9,7 +9,6 @@ import UIKit
 import FirebaseAuth
 
 class LoginVC: UIViewController {
-    
     var userListener:AuthStateDidChangeListenerHandle?
     @IBOutlet weak var passwordTF: UITextField!
     @IBOutlet weak var userNameTF: UITextField!
