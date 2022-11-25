@@ -9,21 +9,34 @@ import UIKit
 import FirebaseAuth
 
 class LoginVC: UIViewController {
-    
+    var userListener:AuthStateDidChangeListenerHandle?
     @IBOutlet weak var passwordTF: UITextField!
     @IBOutlet weak var userNameTF: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-        _ = Auth.auth().addStateDidChangeListener { auth, user in
-            if(user != nil){
-                print("login user!",user!)
-                self.goToLogin()
-            }
+        do{
+            print("Trying to log out")
+            try Auth.auth().signOut()
+            print("logged out")
+        }catch let err {
+            print("Error logging out ",err)
         }
     }
     
     override func viewDidAppear(_ animated: Bool) {
         self.navigationItem.title = "Login"
+        self.userListener = Auth.auth().addStateDidChangeListener { auth, user in
+            if(user != nil){
+//                print("login user!",user!)
+                self.goToLogin()
+            }
+        }
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+            if let handle = self.userListener{
+                Auth.auth().removeStateDidChangeListener(handle)
+            }
     }
     
     
@@ -34,7 +47,9 @@ class LoginVC: UIViewController {
         if let username = userNameTF.text{
             if let psd = passwordTF.text{
                 Auth.auth().signIn(withEmail: username, password: psd) { authResult, error in
-                    print("Auth results ",error!)
+                    if let e = error{
+                        print("Auth results ",e)
+                    }
                 }
             }
         }

@@ -9,19 +9,32 @@ import UIKit
 import FirebaseAuth
 
 class UserTypeSelector: UIViewController {
-    
+    var driverMode: Bool!
+    @IBOutlet weak var greetingLabel: UILabel!
+    var userHandle: AuthStateDidChangeListenerHandle?
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Select User type"
         self.navigationItem.setHidesBackButton(true, animated: true)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         self.logoutLogin()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        guard let h = self.userHandle else{
+            return
+        }
+        Auth.auth().removeStateDidChangeListener(h)
+    }
+    
     func logoutLogin(){
-        _ = Auth.auth().addStateDidChangeListener { auth, user in
+        self.userHandle = Auth.auth().addStateDidChangeListener { auth, user in
             if(user != nil){
-                print(user!)
+//                print(user!)
                 self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(self.rightHandAction))
+                self.greetingLabel.text = "Welcome "+(user?.email ?? "")+""
             }else{
                 _ = self.navigationController?.popViewController(animated: true)
             }
@@ -38,21 +51,18 @@ class UserTypeSelector: UIViewController {
     }
     
     @IBAction func buttonSelectPassenger(_ sender: Any) {
+        self.driverMode = false
         performSegue(withIdentifier: "selectedPassenger", sender: self)
     }
     
     @IBAction func goToSample(_ sender: UIButton) {
-        performSegue(withIdentifier: "goToSample", sender: self)
+        self.driverMode = true
+        performSegue(withIdentifier: "selectedPassenger", sender: self)
     }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
+         if let pass = segue.destination as? PassengerDashboardTableVC{
+             pass.driverMode = self.driverMode
+         }
      }
-     */
-    
 }

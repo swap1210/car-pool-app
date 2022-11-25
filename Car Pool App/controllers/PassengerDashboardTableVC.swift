@@ -7,18 +7,23 @@
 
 import UIKit
 import FirebaseFirestore
+import FirebaseAuth
 
 class PassengerDashboardTableVC: UITableViewController {
 
     var db: Firestore!
     var rideArray: [Ride] = []
     var currentCount = 0
-
-    @IBOutlet var passengerView: UITableView!
-    var destinationArray: [String] = []//["Kroger", "UHCL", "Hawk's Landing", "Walmart"]
-    //var requesterArray: [String] = []//["John", "Ben", "Maria", "Paul"]
-//    @IBOutlet weak var destination: UILabel!
+    var currentTripId: Int = 0
+    private var rideListner: ListenerRegistration? = nil
+    var myEmail: String?
+    let dateFormatter = DateFormatter()
     
+    var driverMode: Bool!
+
+    @IBOutlet weak var addPassengerBtn: UIBarButtonItem!
+    
+    @IBOutlet var passengerView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,30 +31,32 @@ class PassengerDashboardTableVC: UITableViewController {
         
         self.title = "Passenger Dashboard"
         
-        populateTrips()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        self.myEmail = Auth.auth().currentUser?.email ?? ""
+        
+        if driverMode{
+            self.title = "Driver Dashboard"
+            self.navigationItem.setRightBarButton(nil, animated: true)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         populateTrips()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        self.rideListner?.remove()
+    }
+    
     func populateTrips() {
         
-        
-        db.collection(Common.CPcollection).document(Common.document)
+        self.rideListner = db.collection(Common.CPcollection).document(Common.document)
             .addSnapshotListener { documentSnapshot, error in
                 guard let document = documentSnapshot else {
                     print("Error fetching document: \(error!)")
                     return
                 }
                 
-                self.destinationArray = []
+                self.rideArray = []
                 
                 guard let data = document.data() else {
                     print("Document data was empty.")
@@ -59,31 +66,27 @@ class PassengerDashboardTableVC: UITableViewController {
                 if let _rides = data[Common.mainField] as? NSDictionary{
                     self.currentCount = _rides["count"] as! Int
                     if let _ridesRecords = _rides["records"] as? NSDictionary{
-                        
                         for ride in _ridesRecords{
-                            let rideS = Ride(dictionary:ride.value as! NSDictionary)
-                            
+                            var rideS = Ride(dictionary:ride.value as! NSDictionary)
+                            rideS.tripID = Int(ride.key as! String)
                             if rideS.timeFrom.dateValue() > Date(){
-                                if rideS.passengers.count < 4{
-                                    self.rideArray.append(rideS)
-                                    self.destinationArray.append(rideS.to)
-                                    //self.destination.text = rideS.from
+                                if self.driverMode{
+                                    if rideS.driver == "" || rideS.driver == self.myEmail{
+                                        self.rideArray.append(rideS)
+                                    }
+                                }else{
+                                    if rideS.passengers.count <= Common.allowedPassengers{
+                                        if rideS.driver != self.myEmail{//not include records where current user is driver
+                                            self.rideArray.append(rideS)
+                                        }
+                                    }
                                 }
                             }
                         }
                     }
                     self.passengerView.reloadData()
-                    print("Current data: \(_rides.count)")
                 }
             }
-        
-//        let end = self.destinationArray.count - 1
-//        for i in 0...end {
-//            var trip = Trip()
-//            trip.destination = destinationArray[i]
-//            trip.requester = destinationArray[i]
-//            tripArray.append(trip)
-//        }
     }
 
     // MARK: - Table view data source
@@ -95,72 +98,231 @@ class PassengerDashboardTableVC: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return destinationArray.count
+        return rideArray.count
     }
 
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DriverCell", for: indexPath) as! PassengerDashboardTableViewCell
 
-        cell.destination.text = destinationArray[indexPath.row]
-//        cell.destination.text = tripArray[indexPath.row].destination
-//        cell.requester.text = tripArray[indexPath.row].requester
+        cell.destination.text = rideArray[indexPath.row].from + " - " + rideArray[indexPath.row].to
+        cell.driver.text = "Driver: " + rideArray[indexPath.row].driver
+        dateFormatter.dateFormat = "MM/dd/YY HH:mm"
+        cell.passengers.text = dateFormatter.string(from: rideArray[indexPath.row].timeFrom.dateValue()) + " - " + dateFormatter.string(from: rideArray[indexPath.row].timeTo.dateValue())
+        if let myEmail = myEmail{
+            if self.driverMode{
+                cell.itHasMe = rideArray[indexPath.row].driver == myEmail
+            }else{
+                cell.itHasMe = rideArray[indexPath.row].passengers.contains(myEmail)
+            }
+        }
+        cell.checkItHasMe()
 
         return cell
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60
+        return 80
     }
-    
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
     
     @IBAction func addTrip(_ sender: UIBarButtonItem) {
         performSegue(withIdentifier: "addTrip", sender: self)
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        currentTripId = rideArray[indexPath.row].tripID!
+        performSegue(withIdentifier: "passengerToDetails", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "passengerToDetails"{
+            if let detailVC = segue.destination as? DetailTripVC{
+                detailVC.isDriver = driverMode
+                detailVC.TripId = currentTripId
+            }
+        }
+    }
 }
+
+//class PassengerDashboardTableVC: UITableViewController {
+//
+//    var db: Firestore!
+//    var rideArray: [Ride] = []
+//    var currentCount = 0
+//    var currentTripId: Int = 0
+//    private var rideListner: ListenerRegistration? = nil
+//    var myEmail: String?
+//    let dateFormatter = DateFormatter()
+//
+//    @IBOutlet var passengerView: UITableView!
+//    //var destinationArray: [String] = []//["Kroger", "UHCL", "Hawk's Landing", "Walmart"]
+//    //var requesterArray: [String] = []//["John", "Ben", "Maria", "Paul"]
+////    @IBOutlet weak var destination: UILabel!
+//
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//
+//        db = Firestore.firestore()
+//
+//        self.title = "Passenger Dashboard"
+//
+//        self.myEmail = Auth.auth().currentUser?.email ?? ""
+//
+//        // Uncomment the following line to preserve selection between presentations
+//        // self.clearsSelectionOnViewWillAppear = false
+//
+//        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+//        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+//    }
+//
+//    override func viewWillAppear(_ animated: Bool) {
+//        populateTrips()
+//    }
+//
+//    override func viewWillDisappear(_ animated: Bool) {
+//        self.rideListner?.remove()
+//    }
+//    func populateTrips() {
+//
+//
+//        self.rideListner = db.collection(Common.CPcollection).document(Common.document)
+//            .addSnapshotListener { documentSnapshot, error in
+//                guard let document = documentSnapshot else {
+//                    print("Error fetching document: \(error!)")
+//                    return
+//                }
+//
+//                self.rideArray = []
+//
+//                guard let data = document.data() else {
+//                    print("Document data was empty.")
+//                    return
+//                }
+//
+//                if let _rides = data[Common.mainField] as? NSDictionary{
+////                    print(_rides)
+//                    self.currentCount = _rides["count"] as! Int
+//                    if let _ridesRecords = _rides["records"] as? NSDictionary{
+//                        for ride in _ridesRecords{
+//                            var rideS = Ride(dictionary:ride.value as! NSDictionary)
+//                            rideS.tripID = Int(ride.key as! String)
+//                            if rideS.timeFrom.dateValue() > Date(){
+//                                if rideS.passengers.count <= Common.allowedPassengers{
+//                                    if rideS.driver != self.myEmail{//not include records where current user is driver
+//                                        self.rideArray.append(rideS)
+//                                    }
+//                                    //self.destinationArray.append(rideS.to)
+//                                    //self.destination.text = rideS.from
+//                                }
+//                            }
+//                        }
+//                    }
+//                    self.passengerView.reloadData()
+////                    print("Current data: \(_rides.count)")
+//                }
+//            }
+//
+////        let end = self.destinationArray.count - 1
+////        for i in 0...end {
+////            var trip = Trip()
+////            trip.destination = destinationArray[i]
+////            trip.requester = destinationArray[i]
+////            tripArray.append(trip)
+////        }
+//    }
+//
+//    // MARK: - Table view data source
+//
+//    override func numberOfSections(in tableView: UITableView) -> Int {
+//        // #warning Incomplete implementation, return the number of sections
+//        return 1
+//    }
+//
+//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        // #warning Incomplete implementation, return the number of rows
+//        return rideArray.count
+//    }
+//
+//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "DriverCell", for: indexPath) as! PassengerDashboardTableViewCell
+//
+//        cell.destination.text = rideArray[indexPath.row].from + " - " + rideArray[indexPath.row].to
+//        cell.driver.text = "Driver: " + rideArray[indexPath.row].driver
+//        dateFormatter.dateFormat = "MM/dd/YY HH:mm"
+//        cell.passengers.text = dateFormatter.string(from: rideArray[indexPath.row].timeFrom.dateValue()) + " - " + dateFormatter.string(from: rideArray[indexPath.row].timeTo.dateValue())
+//        if let myEmail = myEmail{
+//            cell.itHasMe = rideArray[indexPath.row].passengers.contains(myEmail)
+//        }
+//        cell.checkItHasMe()
+//
+//        return cell
+//    }
+//
+//    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return 80
+//    }
+//
+//
+//    /*
+//    // Override to support conditional editing of the table view.
+//    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+//        // Return false if you do not want the specified item to be editable.
+//        return true
+//    }
+//    */
+//
+//    /*
+//    // Override to support editing the table view.
+//    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+//        if editingStyle == .delete {
+//            // Delete the row from the data source
+//            tableView.deleteRows(at: [indexPath], with: .fade)
+//        } else if editingStyle == .insert {
+//            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+//        }
+//    }
+//    */
+//
+//    /*
+//    // Override to support rearranging the table view.
+//    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
+//
+//    }
+//    */
+//
+//    /*
+//    // Override to support conditional rearranging of the table view.
+//    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+//        // Return false if you do not want the item to be re-orderable.
+//        return true
+//    }
+//    */
+//
+//    /*
+//    // MARK: - Navigation
+//
+//    // In a storyboard-based application, you will often want to do a little preparation before navigation
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        // Get the new view controller using segue.destination.
+//        // Pass the selected object to the new view controller.
+//    }
+//    */
+//
+//
+//    @IBAction func addTrip(_ sender: UIBarButtonItem) {
+//        performSegue(withIdentifier: "addTrip", sender: self)
+//    }
+//
+//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        currentTripId = rideArray[indexPath.row].tripID!
+//        performSegue(withIdentifier: "passengerToDetails", sender: self)
+//    }
+//
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "passengerToDetails"{
+//            if let detailVC = segue.destination as? DetailTripVC{
+//                detailVC.isDriver = false
+//                detailVC.TripId = currentTripId
+//            }
+//        }
+//    }
+//}

@@ -10,13 +10,24 @@ import UIKit
 class PassengerDashboardTableViewCell: UITableViewCell {
 
     
-    @IBOutlet weak var requester: UILabel!
-    
+    @IBOutlet weak var driver: UILabel!
+    @IBOutlet weak var passengers: UILabel!
     @IBOutlet weak var destination: UILabel!
+    var itHasMe: Bool!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
+    
+    func checkItHasMe(){
+        if itHasMe == true{
+            self.backgroundColor = UIColor.green
+        }
+        else{
+            self.backgroundColor = nil
+        }
+    }
+
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
