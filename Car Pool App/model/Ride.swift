@@ -24,10 +24,14 @@ struct Ride{
         self.timeFrom = (dictionary["timeFrom"] as! Timestamp)
         self.passengers = (dictionary["passengers"] as? [String] ?? [])
 <<<<<<< HEAD
+<<<<<<< HEAD
         self.driver = (dictionary["driver"] as? String ?? "")
 =======
         
 >>>>>>> 0a48952 (Update Driver Table View)
+=======
+        
+>>>>>>> ec89cc94e67cfed68c7ac953d3a62e21574ad9ee
     }
     
     init(from: String,to: String,timeFrom: Timestamp,timeTo: Timestamp,driver: String,passengers: [String] = []){

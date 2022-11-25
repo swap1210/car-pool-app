@@ -180,7 +180,10 @@ class DetailTripVC: UIViewController {
  
         // Do any additional setup after loading the view.
         
+<<<<<<< HEAD
 >>>>>>> 5149720 (Create Segue)
+=======
+>>>>>>> ec89cc94e67cfed68c7ac953d3a62e21574ad9ee
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
