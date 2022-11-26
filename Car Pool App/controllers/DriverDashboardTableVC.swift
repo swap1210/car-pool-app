@@ -48,9 +48,11 @@ class DriverDashboardTableVC: UITableViewController {
         populateTrips()
     }
     
+    
     override func viewWillDisappear(_ animated: Bool) {
         self.rideListner?.remove()
     }
+     
     
     func populateTrips() {
         self.rideListner = db.collection(Common.CPcollection).document(Common.document)
@@ -73,24 +75,29 @@ class DriverDashboardTableVC: UITableViewController {
                         for ride in _ridesRecords{
                             var rideS = Ride(dictionary:ride.value as! NSDictionary)
                             rideS.tripID = Int(ride.key as! String)
+                    
                             if rideS.timeFrom.dateValue() > Date(){
                                 if rideS.driver == "" || rideS.driver == self.myEmail{
                                     
-                                    // get row of driver, used for highlighting cell
-                                    if( rideS.driver == self.myEmail)
+                                    if (rideS.passengers.contains(self.myEmail!))
                                     {
-                                        self.isDriverArr.append(true)
-                                    }
-                                    else{
                                         self.isDriverArr.append(false)
                                     }
-                                    self.rideArray.append(rideS)
+                                    else
+                                    {
+                                        self.rideArray.append(rideS)
+                                        self.isDriverArr.append(true)
+                                    }
+                                        
+                                    //print(rideS.passengers)
+                                    //self.rideArray.append(rideS)
                                 }
                             }
                         }
                     }
-                    self.driverView.reloadData()
+                    
                 }
+                self.driverView.reloadData()
             }
     }
 
@@ -115,7 +122,14 @@ class DriverDashboardTableVC: UITableViewController {
         cell.time.text = dateFormatter.string(from: rideArray[indexPath.row].timeFrom.dateValue()) + " - " + dateFormatter.string(from: rideArray[indexPath.row].timeTo.dateValue())
         
         //highlight driver cell
+        /*
         if(isDriverArr[indexPath.row])
+        {
+            cell.contentView.backgroundColor = UIColor.green
+        }
+         */
+        
+        if (rideArray[indexPath.row].driver == self.myEmail)
         {
             cell.contentView.backgroundColor = UIColor.green
         }
