@@ -9,7 +9,6 @@ import UIKit
 import FirebaseAuth
 
 class UserTypeSelector: UIViewController {
-    var driverMode: Bool!
     @IBOutlet weak var greetingLabel: UILabel!
     var userHandle: AuthStateDidChangeListenerHandle?
     override func viewDidLoad() {
@@ -51,18 +50,7 @@ class UserTypeSelector: UIViewController {
     }
     
     @IBAction func buttonSelectPassenger(_ sender: Any) {
-        self.driverMode = false
         performSegue(withIdentifier: "selectedPassenger", sender: self)
     }
     
-    @IBAction func goToSample(_ sender: UIButton) {
-        self.driverMode = true
-        performSegue(withIdentifier: "selectedPassenger", sender: self)
-    }
-    
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-         if let pass = segue.destination as? PassengerDashboardTableVC{
-             pass.driverMode = self.driverMode
-         }
-     }
 }

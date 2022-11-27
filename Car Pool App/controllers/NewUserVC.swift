@@ -16,6 +16,7 @@ class NewUserVC: UIViewController {
     @IBOutlet weak var passwordTF: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = "Create User"
     }
     
     override func viewDidAppear(_ animated: Bool) {

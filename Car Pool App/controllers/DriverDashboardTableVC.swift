@@ -6,23 +6,37 @@
 //
 
 import UIKit
+import FirebaseFirestore
+import FirebaseAuth
 
+/*
 struct Trip{
     var destination = ""
     var requester = ""
 }
+ */
 
 class DriverDashboardTableVC: UITableViewController {
 
-    var tripArray: [Trip] = []
+    @IBOutlet var driverView: UITableView!
+    
+    var db: Firestore!
+    var rideArray: [Ride] = []
+    var currentCount = 0
+    var currentTripId: Int = 0
+    private var rideListner: ListenerRegistration? = nil
+    var myEmail: String?
+    let dateFormatter = DateFormatter()
+    var isDriverArr: [Bool] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = "Driver Dashboard"
         
-        populateTrips()
-
+        db = Firestore.firestore()
+        self.myEmail = Auth.auth().currentUser?.email ?? ""
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -30,17 +44,61 @@ class DriverDashboardTableVC: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        populateTrips()
+    }
+    
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.rideListner?.remove()
+    }
+     
+    
     func populateTrips() {
-        let destinationArray: [String] = ["Kroger", "UHCL", "Hawk's Landing", "Walmart"]
-        let requesterArray: [String] = ["John", "Ben", "Maria", "Paul"]
-        
-        let end = destinationArray.count - 1
-        for i in 0...end {
-            var trip = Trip()
-            trip.destination = destinationArray[i]
-            trip.requester = requesterArray[i]
-            tripArray.append(trip)
-        }
+        self.rideListner = db.collection(Common.CPcollection).document(Common.document)
+            .addSnapshotListener { documentSnapshot, error in
+                guard let document = documentSnapshot else {
+                    print("Error fetching document: \(error!)")
+                    return
+                }
+                
+                self.rideArray = []
+                
+                guard let data = document.data() else {
+                    print("Document data was empty.")
+                    return
+                }
+                
+                if let _rides = data[Common.mainField] as? NSDictionary{
+                    self.currentCount = _rides["count"] as! Int
+                    if let _ridesRecords = _rides["records"] as? NSDictionary{
+                        for ride in _ridesRecords{
+                            var rideS = Ride(dictionary:ride.value as! NSDictionary)
+                            rideS.tripID = Int(ride.key as! String)
+                    
+                            if rideS.timeFrom.dateValue() > Date(){
+                                if rideS.driver == "" || rideS.driver == self.myEmail{
+                                    
+                                    if (rideS.passengers.contains(self.myEmail!))
+                                    {
+                                        self.isDriverArr.append(false)
+                                    }
+                                    else
+                                    {
+                                        self.rideArray.append(rideS)
+                                        self.isDriverArr.append(true)
+                                    }
+                                        
+                                    //print(rideS.passengers)
+                                    //self.rideArray.append(rideS)
+                                }
+                            }
+                        }
+                    }
+                    
+                }
+                self.driverView.reloadData()
+            }
     }
 
     // MARK: - Table view data source
@@ -52,65 +110,50 @@ class DriverDashboardTableVC: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return tripArray.count
+        return rideArray.count
     }
-
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DriverCell", for: indexPath) as! DriverDashboardTableViewCell
 
-        cell.destination.text = tripArray[indexPath.row].destination
-        cell.requester.text = tripArray[indexPath.row].requester
+        cell.destination.text = rideArray[indexPath.row].from + " - " + rideArray[indexPath.row].to
+        cell.driver.text = "Driver: " + rideArray[indexPath.row].driver
+        dateFormatter.dateFormat = "MM/dd/YY HH:mm"
+        cell.time.text = dateFormatter.string(from: rideArray[indexPath.row].timeFrom.dateValue()) + " - " + dateFormatter.string(from: rideArray[indexPath.row].timeTo.dateValue())
+        
+        //highlight driver cell
+        /*
+        if(isDriverArr[indexPath.row])
+        {
+            cell.contentView.backgroundColor = UIColor.green
+        }
+         */
+        
+        if (rideArray[indexPath.row].driver == self.myEmail)
+        {
+            cell.contentView.backgroundColor = UIColor.green
+        }
+        
         return cell
     }
     
+    // size of cell
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60
+        return 80
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        currentTripId = rideArray[indexPath.row].tripID!
+        performSegue(withIdentifier: "driverToDetails", sender: self)
     }
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "driverToDetails"{
+            if let detailVC = segue.destination as? DetailTripVC{
+                detailVC.isDriver = true
+                detailVC.TripId = currentTripId
+            }
+        }
     }
-    */
 
 }

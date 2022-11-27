@@ -73,7 +73,7 @@ class AddTripVC: UIViewController {
             passengersArr.append(curPass)
         }
         
-        if (from != nil && from != "" && to != nil && to != "" && fromAtVal < toAtVal){
+        if (from != nil && from != "" && to != nil && to != "" && fromAtVal < toAtVal && fromAtVal > Date() && toAtVal > Date()){
             self.addRide(ride: Ride(from: from!, to: to!, timeFrom: Timestamp(date:fromAtVal), timeTo: Timestamp(date:toAtVal),driver: "", passengers: passengersArr))
         }else{
             var message:String = ""
@@ -86,12 +86,16 @@ class AddTripVC: UIViewController {
                 message = message + "To address is invalid. "
             }
             
-            if (fromAtVal < toAtVal){
+            if (fromAtVal >= toAtVal){
                 message = message + "from date must be before to date. "
             }
             
             if (fromAtVal < Date()){
-                message = message + "from date can't be a past date."
+                message = message + "from date can't be a past date. "
+            }
+            
+            if (toAtVal < Date()){
+                message = message + "To date can't be a past date. "
             }
             
             let alertController = UIAlertController(title: "Input Error", message: message, preferredStyle: .alert)
